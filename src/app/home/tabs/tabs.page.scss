@@ -1,0 +1,41 @@
+.content{
+    position:auto;
+    max-width: 1000px;
+    margin-top:100px;
+    margin-left:60px;
+    margin: 100px;
+}
+.buttons-action{
+    margin-left:5px;
+}
+.signup-text{
+    background-color: #dff19c;
+    font-size: x-small;
+    color: #2763e6;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    text-transform: none;
+}
+.signin-text{
+    background-color: #e9905c;
+    margin-left: 10px;
+    font-size: small;
+    color: #05106e;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    text-transform: none;
+}
+ion-input{
+background-color: #ededed;
+border-radius:5px;
+font-size:small;
+}
+.actionbutton{
+    background-color: #20438d;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-left:15px;
+    margin-right:13px;
+    font-size:small;
+    font-family:Arial, Helvetica, sans-serif;
+}

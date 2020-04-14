@@ -1,0 +1,34 @@
+ion-content ion-toolbar {
+    --background: translucent;
+  }
+  .pic{
+    width: 30px;
+    height: 30px;
+  }
+  .header {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+  }
+  .btn {
+    position: auto;
+    float: right;
+    size: small;
+  }
+  .questions {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  .rating {
+    display: grid;
+    align-items: center;
+    margin-left: 4em;
+  }
+  .verify-email{
+    display: grid;
+      align-items: center;
+      justify-content: center;
+      margin-top: 5em;
+  }

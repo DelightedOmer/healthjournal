@@ -1,0 +1,178 @@
+<ion-header *ngIf="verifiedEmail" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon name="add-circle"></ion-icon>
+      Wellbeing Questions.....
+    <ion-button class="btn" fill="clear" (click)="nextbtn()">
+      next
+    </ion-button>
+  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header *ngIf="!verifiedEmail" [translucent]="true">
+  <ion-toolbar color="danger" class="verify-email" 
+	style="color:azure; max-height: 70px; text-align: center;">
+  <ion-label>Please verify your email account</ion-label><br>
+  <ion-button (click)="refresh()">Refresh</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="verifiedEmail" [fullscreen]="true">
+  <div class="header">
+    <ion-title>
+      <u>Symptoms</u>
+    </ion-title>
+  </div>
+
+  <div>
+    <ion-grid class="questions">
+      <div>
+        <p>Do you have Pain today?</p>
+      </div>
+      <div class ="btn">
+        <ion-button fill="clear" shape="circle" (click)="painChange(1)">
+          <ion-img class="pic" [src]="happy"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="painChange(2)">
+          <ion-img class="pic" [src]="smile"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="painChange(3)">
+          <ion-img class="pic" [src]="normal"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="painChange(4)">
+          <ion-img class="pic" [src]="sad"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="painChange(5)">
+          <ion-img class="pic" [src]="cry"></ion-img>
+        </ion-button>
+      </div>
+
+      <div>
+        <p>Do you have Shortness of Breath?</p>
+      </div>
+      <div class ="btn">
+        <ion-button fill="clear" shape="circle" (click)="breathChange(1)">
+          <ion-img class="pic" [src]="happy"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="breathChange(2)">
+          <ion-img class="pic" [src]="smile"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="breathChange(3)">
+          <ion-img class="pic" [src]="normal"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="breathChange(4)">
+          <ion-img class="pic" [src]="sad"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="breathChange(5)">
+          <ion-img class="pic" [src]="cry"></ion-img>
+        </ion-button>
+      </div>
+
+      <div>
+        <p>Do you Sweat you Legs?</p>
+      </div>
+      <div class ="btn">
+        <ion-button fill="clear" shape="circle" (click)="legsChange(1)">
+          <ion-img class="pic" [src]="happy"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="legsChange(2)">
+          <ion-img class="pic" [src]="smile"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="legsChange(3)">
+          <ion-img class="pic" [src]="normal"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="legsChange(4)">
+          <ion-img class="pic" [src]="sad"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="legsChange(5)">
+          <ion-img class="pic" [src]="cry"></ion-img>
+        </ion-button>
+      </div>
+
+      <div>
+        <p>Do you have Cough?</p>
+      </div>
+      <div class ="btn">
+        <ion-button fill="clear" shape="circle" (click)="coughChange(1)">
+          <ion-img class="pic" [src]="happy"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="coughChange(2)">
+          <ion-img class="pic" [src]="smile"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="coughChange(3)">
+          <ion-img class="pic" [src]="normal"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="coughChange(4)">
+          <ion-img class="pic" [src]="sad"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="coughChange(5)">
+          <ion-img class="pic" [src]="cry"></ion-img>
+        </ion-button>
+      </div>
+
+      <div>       
+        <p>Do you feel Hoarseness?</p>
+      </div>
+      <div class ="btn">
+        <ion-button fill="clear" shape="circle" (click)="hoarsenessChange(1)">
+          <ion-img class="pic" [src]="happy"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="hoarsenessChange(2)">
+          <ion-img class="pic" [src]="smile"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="hoarsenessChange(3)">
+          <ion-img class="pic" [src]="normal"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="hoarsenessChange(4)">
+          <ion-img class="pic" [src]="sad"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="hoarsenessChange(5)">
+          <ion-img class="pic" [src]="cry"></ion-img>
+        </ion-button>
+      </div>
+
+      <div>
+        <p>Do you feel Fatigue?</p>
+      </div>
+      <div class ="btn">
+        <ion-button fill="clear" shape="circle" (click)="fatiqueChange(1)">
+          <ion-img class="pic" [src]="happy"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="fatiqueChange(2)">
+          <ion-img class="pic" [src]="smile"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="fatiqueChange(3)">
+          <ion-img class="pic" [src]="normal"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="fatiqueChange(4)">
+          <ion-img class="pic" [src]="sad"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="fatiqueChange(5)">
+          <ion-img class="pic" [src]="cry"></ion-img>
+        </ion-button>
+      </div>
+
+      <div>
+        <p>Do you have Unexplained loss of Appetite/Weight?</p>
+      </div>
+      <div class ="btn">
+        <ion-button fill="clear" shape="circle" (click)="weightChange(1)">
+          <ion-img class="pic" [src]="happy"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="weightChange(2)">
+          <ion-img class="pic" [src]="smile"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="weightChange(3)">
+          <ion-img class="pic" [src]="normal"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="weightChange(4)">
+          <ion-img class="pic" [src]="sad"></ion-img>
+        </ion-button>
+        <ion-button fill="clear" shape="circle" (click)="weightChange(5)">
+          <ion-img class="pic" [src]="cry"></ion-img>
+        </ion-button>
+        </div>
+      </ion-grid>
+  </div>
+</ion-content>
