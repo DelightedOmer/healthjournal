@@ -1,22 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { AuthService } from 'src/app/auth.service';
 import { AlertController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { UserService, Userelement } from 'src/app/user.service';
-import { take, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { UserService } from 'src/app/user.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  selector: 'app-cardiovascular',
+  templateUrl: './cardiovascular.page.html',
+  styleUrls: ['./cardiovascular.page.scss'],
 })
-export class HomePage implements OnInit {
-
-  info: Observable<Userelement>;
-  verifiedEmail = true;
+export class CardiovascularPage implements OnInit {
   happy: any = '../../../assets/1.png';
   smile = '../../../assets/2.png';
   normal = '../../../assets/3.png';
@@ -24,25 +18,19 @@ export class HomePage implements OnInit {
   cry = '../../../assets/5.png';
 
   constructor(
-    private afStore: AngularFirestore,
+    private afdb: AngularFireDatabase,
     public Uauth: AuthService,
     public alert: AlertController,
     public afAuth: AngularFireAuth,
-    private user: UserService) {
+    private user: UserService) { }
 
-    //  this.afAuth.authState.subscribe(user$ => {
-      //  if (user) {
-        //   setInterval(() => {
-          //   this.verifiedEmail = this.afAuth.auth.currentUser.emailVerified;
-          // }, 1000);
-       //  }
-      // });
-     }
+  ngOnInit() {
+  }
 
   submit(parameter) {
     const feel = parameter;
     const date: string = new Date().toDateString();
-    this.afStore.doc(`users/${this.Uauth.cUid}/feelings/${date}`).set(feel);
+    this.afdb.database.ref(`users/${this.Uauth.cUid}/feelings/${date}`).set(feel);
     console.log(feel);
     // tslint:disable-next-line: no-conditional-assignment
     if (feel === 1) {
@@ -56,17 +44,6 @@ export class HomePage implements OnInit {
     } else {
       this.showAlert('Oh no!', 'You are so sad today');
     }
-  }
-
-  ngOnInit() {
-    const uid = this.Uauth.cUid;
-    console.log(uid);
-    this.info = this.user.getUser(uid);
-    console.log(this.info);
-  }
-
-  refresh() {
-    window.location.reload();
   }
 
   async showAlert(header: string, message: string) {

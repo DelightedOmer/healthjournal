@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
             email,
             uid: res.user.uid
           });
-          this.router.navigate(['/dashboard']);
         }
     } catch (error) {
         console.dir(error);

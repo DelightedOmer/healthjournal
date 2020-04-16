@@ -14,35 +14,39 @@ export class AuthService {
    // Observable provide support for passing messages
   //  between publishers and subscribers in your application.
     user$: Observable<Userelement>;
-    authState: any = null;
+    uInfo: Userelement = null;
 
     constructor(
-        private afAuth: AngularFireAuth,
-        private afStore: AngularFirestore,
-        public userS: UserService,
+        private afAuth: AngularFireAuth) {
 
-    ) {
-      // User authentication function
-        this.user$ = this.afAuth.authState.pipe(
-            switchMap(user => {
-                if (user) {
-                    return this.afStore.doc<Userelement>(`users/${user.uid}`).valueChanges();
-                } else {
-                    return of (null);
-                }
-            })
-        );
-        this.afAuth.authState.subscribe(data => this.authState = data );
+          // User authentication function
+        this.user$ = this.afAuth.authState;
+        this.user$.subscribe((user) => {
+          if (user) {
+            this.uInfo = user;
+          } else {
+            this.uInfo = null;
+          }
+        });
+
+        // check user email varified or not
+        this.afAuth.authState.subscribe(user => {
+        if (user) {
+        setInterval(() => {
+  //      this.verifiedEmail = this.afAuth.auth.currentUser.emailVerified;
+        }, 1000);
+       }
+      });
       }
 
       // authenticated or not
       get authenticated(): boolean {
-        return this.authState !== null;
+        return this.uInfo !== null;
       }
 
       // to get user data
       get cUid(): string {
-        return this.authenticated ? this.authState.uid : null;
+        return this.authenticated ? this.uInfo.uid : null;
       }
 
 }

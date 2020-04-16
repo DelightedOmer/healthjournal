@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
-import { auth, firestore, User, analytics } from 'firebase/app';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AlertController } from '@ionic/angular';
 
 import { UserService } from '../user.service';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 
 @Component({
@@ -19,10 +19,11 @@ export class RegisterPage implements OnInit {
   email?: string;
   password?: string;
   repassword: string;
+  patient: string = null;
 
   constructor(
       public afAuth: AngularFireAuth,
-      public afStore: AngularFirestore,
+      private afdb: AngularFireDatabase,
       public alert: AlertController,
       public user: UserService,
       public router: Router
@@ -38,12 +39,13 @@ async register() {
   try {
       const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
       if (credential.user) {
-      this.afStore.doc(`users/${credential.user.uid}`).set({
+      this.user.setUser({
       uid: credential.user.uid,
       email,
-      displayName: email.split('@')[0]
+      displayName: email.split('@')[0],
+      patient: this.patient
       });
-
+      console.log(credential.user.uid);
       this.router.navigate(['/tabs']);
       this.afAuth.auth.currentUser.sendEmailVerification();
       console.log('We have sent you an email verification');

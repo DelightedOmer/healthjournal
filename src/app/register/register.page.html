@@ -12,7 +12,11 @@
     <div class="ion-padding">
       <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input> <br>
       <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input> <br>
-      <ion-input placeholder="Re-Password" type="password" [(ngModel)]="repassword"></ion-input>
+      <ion-input placeholder="Re-Password" type="password" [(ngModel)]="repassword"></ion-input><br>
+        <ion-select required="true" placeholder="Disease" [(ngModel)] = "patient">
+          <ion-select-option value="cancer">Cancer</ion-select-option>
+          <ion-select-option value="cardiovascular">Cardiovascular</ion-select-option>
+        </ion-select>
     </div>
     <ion-button class="actionbutton" expand="full" color="#20438d" (click)="register()" routerLink="/tabs">Registration</ion-button>
     <ion-button fill="clear" style="font-size:10px; padding-bottom:20px;

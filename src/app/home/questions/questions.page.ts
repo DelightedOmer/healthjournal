@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 import { AuthService } from 'src/app/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from 'src/app/user.service';
@@ -35,6 +37,7 @@ export class QuestionsPage implements OnInit {
     private router: Router,
     public navCtrl: NavController,
     private afdb: AngularFireDatabase,
+    private afStore: AngularFirestore,
     private Uath: AuthService,
     private user: UserService) {
       this.afAuth.authState.subscribe(user$ => {
@@ -52,50 +55,50 @@ export class QuestionsPage implements OnInit {
 
   painChange(event) {
     this.pain = event;
-    this.afdb.database
-    .ref(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
+    this.afStore
+    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
     .update({
       pain: this.pain});
   }
   breathChange(event) {
     this.breath = event;
-    this.afdb.database
-    .ref(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
+    this.afStore
+    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
     .update({
       breath: this.breath});
   }
   legsChange(event) {
     this.legs = event;
-    this.afdb.database
-    .ref(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
+    this.afStore
+    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
     .update({
       legs: this.legs});
   }
   coughChange(event) {
     this.cough = event;
-    this.afdb.database
-    .ref(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
+    this.afStore
+    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
     .update({
       cough: this.cough});
   }
   hoarsenessChange(event) {
     this.hoarseness = event;
-    this.afdb.database
-    .ref(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
+    this.afStore
+    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
     .update({
       hoarseness: this.hoarseness});
   }
   fatiqueChange(event) {
     this.hoarseness = event;
-    this.afdb.database
-    .ref(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
+    this.afStore
+    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
     .update({
       hoarseness: this.hoarseness});
   }
   weightChange(event) {
     this.weight = event;
-    this.afdb.database
-    .ref(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
+    this.afStore
+    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
     .update({
       weight: this.weight});
   }
