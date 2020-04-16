@@ -58,12 +58,12 @@ export class DocumentPage implements OnInit {
     const ohters = this.others;
     const date: string = new Date().toDateString();
 
-    const res = this.afdb.database.ref(`users/${this.Uauth.cUid}/summary/${date}`);
+    const res = this.afStore.doc(`users/${this.Uauth.cUid}/survey/${date}`);
     const data = {
       food, exercise, entertaintments, visits, events, ohters
     };
 
-    res.update(data);
+    res.update({summary: data});
     this.router.navigate(['/tabs/questions']);
     return this.router.navigate(['/tabs']);
   }

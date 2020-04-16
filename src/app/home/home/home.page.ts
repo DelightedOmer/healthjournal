@@ -40,18 +40,20 @@ export class HomePage implements OnInit {
      }
 
   submit(parameter) {
-    const feel = parameter;
+    const feelings = parameter;
     const date: string = new Date().toDateString();
-    this.afStore.doc(`users/${this.Uauth.cUid}/feelings/${date}`).set(feel);
-    console.log(feel);
+    this.afStore.doc(`users/${this.Uauth.cUid}/survey/${date}`)
+    .set({
+      feel: feelings}, {merge: true});
+    console.log(feelings);
     // tslint:disable-next-line: no-conditional-assignment
-    if (feel === 1) {
+    if (feelings === 1) {
       this.showAlert('Hurray..!', 'You are very happy today');
-    } else if (feel === 2) {
+    } else if (feelings === 2) {
       this.showAlert('Hurray..!', 'You are happy today');
-    } else if (feel === 3) {
+    } else if (feelings === 3) {
       this.showAlert('Hello..!', 'You are good today');
-    } else if (feel === 4) {
+    } else if (feelings === 4) {
       this.showAlert('Oh no..!', 'You are sad today');
     } else {
       this.showAlert('Oh no!', 'You are so sad today');

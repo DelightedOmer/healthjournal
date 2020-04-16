@@ -8,9 +8,16 @@ ion-toolbar{
   p{
     color:white;
   }
+  ion-label{
+    color:white;
+  }
+  ion-button{
+    size:20px;
+    tab-size: 16px;
+  }
   .pic{
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
   .header {
     display: grid;
@@ -27,6 +34,7 @@ ion-toolbar{
     display: grid;
     align-items: center;
     justify-content: center;
+    margin-left: 3em;
   }
   .rating {
     display: grid;

@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from 'src/app/user.service';
+import { merge } from 'rxjs';
 
 @Component({
   selector: 'app-questions',
@@ -38,7 +39,7 @@ export class QuestionsPage implements OnInit {
     public navCtrl: NavController,
     private afdb: AngularFireDatabase,
     private afStore: AngularFirestore,
-    private Uath: AuthService,
+    private Uauth: AuthService,
     private user: UserService) {
       this.afAuth.authState.subscribe(user$ => {
         if (user) {
@@ -55,52 +56,59 @@ export class QuestionsPage implements OnInit {
 
   painChange(event) {
     this.pain = event;
+    console.log(event);
     this.afStore
-    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
-    .update({
-      pain: this.pain});
+    .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
+    .set({
+      pain: this.pain}, {merge: true});
   }
   breathChange(event) {
     this.breath = event;
+    console.log(event);
     this.afStore
-    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
-    .update({
-      breath: this.breath});
+    .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
+    .set({
+      breath: this.breath}, {merge: true});
   }
   legsChange(event) {
     this.legs = event;
+    console.log(event);
     this.afStore
-    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
-    .update({
-      legs: this.legs});
+    .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
+    .set({
+      legs: this.legs}, {merge: true});
   }
   coughChange(event) {
     this.cough = event;
+    console.log(event);
     this.afStore
-    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
-    .update({
-      cough: this.cough});
+    .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
+    .set({
+      cough: this.cough}, {merge: true});
   }
   hoarsenessChange(event) {
     this.hoarseness = event;
+    console.log(event);
     this.afStore
-    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
-    .update({
-      hoarseness: this.hoarseness});
+    .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
+    .set({
+      hoarseness: this.hoarseness}, {merge: true});
   }
   fatiqueChange(event) {
     this.hoarseness = event;
+    console.log(event);
     this.afStore
-    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
-    .update({
-      hoarseness: this.hoarseness});
+    .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
+    .set({
+      hoarseness: this.hoarseness}, {merge: true});
   }
   weightChange(event) {
     this.weight = event;
+    console.log(event);
     this.afStore
-    .doc(`users/${this.Uath.cUid}/welbeing questions/${this.date}`)
-    .update({
-      weight: this.weight});
+    .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
+    .set({
+      weight: this.weight}, {merge: true});
   }
 
   ngOnInit() {
