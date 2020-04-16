@@ -1,3 +1,12 @@
-ion-content ion-toolbar {
-    --background: translucent;
+ion-toolbar{
+  --background:url(../../../assets/359874.jpg) 0 0/100% 100% no-repeat;
+  color: gold;
+  .btn{
+    position: auto;
+    float: right;
   }
+}
+ion-content{
+  --background:url(../../../assets/red_wall.jpg) 0 0/100% 100% no-repeat;
+
+}

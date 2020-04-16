@@ -1,5 +1,12 @@
-ion-content ion-toolbar {
-    --background: translucent;
+ion-content{
+  --background:url('../../../assets/red_wall.jpg') 0 0/100% 100% no-repeat;
+  }
+ion-toolbar{
+  --background:url('../../../assets/359874.jpg') 0 0/100% 100% no-repeat;
+  color:goldenrod;
+}
+  p{
+    color:white;
   }
   .pic{
     width: 30px;

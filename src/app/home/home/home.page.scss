@@ -1,5 +1,17 @@
-ion-content.background{
-    --background: #ffffff;
+  ion-content.background{
+    --background:url(../../../assets/gray_lines.jpg) 0 0/100% 100% no-repeat;
+  }
+  .head{
+    --background:url(../../../assets/sasha.jpg) 0 0/100% 100% no-repeat;
+    color:goldenrod;
+  }
+  p{
+    color: white;
+    text-align: center;
+  }
+  ion-label{
+    color: white;
+    text-align: center;
   }
   .pic{
     width: 30px;

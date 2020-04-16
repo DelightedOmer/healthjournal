@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="head">
     <ion-title>
       <ion-icon name="home-outline"></ion-icon>
       Your today  .....
@@ -17,12 +17,12 @@
 
 
 <ion-content class="background" [fullscreen]="true">
-  <ion-list *ngIf= "(info |async)?.patient === 'cancer'">
+  <div *ngIf= "(info |async)?.patient === 'cancer'">
     <p>This is for Cancer Patient</p>
-  </ion-list>
-  <ion-list *ngIf= "(info |async)?.patient === 'cardiovascular'">
+  </div>
+  <div *ngIf= "(info |async)?.patient === 'cardiovascular'">
     <p>This is for Cardiovascular Patient</p>
-  </ion-list>
+  </div>
   <div class="raitng">
     <ion-label>
       How are you today?
@@ -30,19 +30,24 @@
     <div class ="btn">
       <ion-button fill="clear" shape="circle" (click)="submit(1)">
         <ion-img class="pic" [src]="happy"></ion-img>
-      </ion-button><br><br>
+      </ion-button>
+      <ion-label size="4">Very Good</ion-label><br>
       <ion-button fill="clear" shape="circle" (click)="submit(2)">
         <ion-img class="pic" [src]="smile"></ion-img>
-      </ion-button><br><br>
+      </ion-button>
+      <ion-label>Good</ion-label><br>
       <ion-button fill="clear" shape="circle" (click)="submit(3)">
         <ion-img class="pic" [src]="normal"></ion-img>
-      </ion-button><br><br>
+      </ion-button>
+      <ion-label>Okay</ion-label><br>
       <ion-button fill="clear" shape="circle" (click)="submit(4)">
         <ion-img class="pic" [src]="sad"></ion-img>
-      </ion-button><br><br>
+      </ion-button>
+      <ion-label>Sad</ion-label><br>
       <ion-button fill="clear" shape="circle" (click)="submit(5)">
         <ion-img class="pic" [src]="cry"></ion-img>
       </ion-button>
+      <ion-label>Very Sad</ion-label>
     </div>
   </div>
 </ion-content>

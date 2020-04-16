@@ -1,6 +1,6 @@
 <div *ngIf="Uauth.authenticated; else login">
   <ion-tabs>
-    <ion-tab-bar slot="bottom">
+    <ion-tab-bar slot="bottom" class="background">
   
       <ion-tab-button tab="home">
         <ion-icon name="home-outline"></ion-icon>
@@ -22,17 +22,17 @@
 </div>
 
 <ng-template #login>
-  <div class="content">
+  <ion-content>
+  <div class="over">
     <ion-grid style="max-width: 465px;">
       <ion-row>
         <ion-col>
-
             <ion-grid style="max-width: 465px;">
               <div class="button-action">
-                <ion-button class="signin-text" fill="round" size="small">
+                <ion-button class="signin-text" size="large" color="#e9905c">
                   <b><p>Log in</p></b>
                 </ion-button>
-                <ion-button class="signup-text" fill="round" size="small" routerLink="/register" routerDirection="root">
+                <ion-button class="signup-text" size="small" color="#dff19c" routerLink="/register" routerDirection="root">
                   <b><p>Registration</p></b>
                 </ion-button>
               </div>
@@ -41,11 +41,12 @@
                 <ion-input placeholder="Email" type="text" [(ngModel)]="ln.email"></ion-input> <br>
                 <ion-input placeholder="Password" type="password" [(ngModel)]="ln.password"></ion-input>
               </div>
-              <ion-button class="actionbutton" expand="block" color="#20438d" style="max-width: 465px;" (click)="ln.login()">Sign In</ion-button>
+              <ion-button class="actionbutton" expand="block" color="#20438d" style="max-width: 465px;" (click)="ln.login()">Log In</ion-button>
             </ion-grid>
 
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
+</ion-content>
 </ng-template>

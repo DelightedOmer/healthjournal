@@ -1,11 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      <ion-icon name="add-circle"></ion-icon>
+      <ion-icon name="help-circle"></ion-icon>
       Wellbeing Questions.....
-    <ion-button class="btn" fill="clear" (click)="nextbtn()">
-      next
-    </ion-button>
+      <ion-icon class="btn" name="arrow-forward-circle" (click)="nextbtn()" size="large"></ion-icon>
   </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +11,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="header">
-    <ion-title>
+    <ion-title style="color: white;">
       <u>Symptoms</u>
     </ion-title>
   </div>
