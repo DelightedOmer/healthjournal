@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color= "primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Setup Nickname</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="enterNickname()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Enter your Nickname</ion-label>
+        <ion-input type="text" [(ngModel)]="data.nickName" name="nickName" required=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button full round color="secondary" type="submit">Enter</button>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -11,6 +11,11 @@
         <ion-icon name="document-text-outline"></ion-icon>
         <ion-label>Servey</ion-label>
       </ion-tab-button>
+
+      <ion-tab-button routerLink="/nick-name" routerDirection="root">
+        <ion-icon name="chatbubbles-outline"></ion-icon>
+        <ion-label>Chat</ion-label>
+      </ion-tab-button>
   
       <ion-tab-button tab="settings">
         <ion-icon name="cog-outline"></ion-icon>
@@ -25,27 +30,28 @@
   <ion-content>
   <div class="over">
     <ion-grid style="max-width: 465px;">
-      <ion-row>
-        <ion-col>
-            <ion-grid style="max-width: 465px;">
-              <div class="button-action">
-                <ion-button class="signin-text" size="large" color="#e9905c">
-                  <b><p>Log in</p></b>
-                </ion-button>
-                <ion-button class="signup-text" size="small" color="#dff19c" routerLink="/register" routerDirection="root">
-                  <b><p>Registration</p></b>
-                </ion-button>
-              </div>
-
-              <div class="ion-padding">
-                <ion-input placeholder="Email" type="text" [(ngModel)]="ln.email"></ion-input> <br>
-                <ion-input placeholder="Password" type="password" [(ngModel)]="ln.password"></ion-input>
-              </div>
-              <ion-button class="actionbutton" expand="block" color="#20438d" style="max-width: 465px;" (click)="ln.login()">Log In</ion-button>
-            </ion-grid>
-
-        </ion-col>
-      </ion-row>
+      <div class="card">
+        <ion-row>
+          <ion-col>
+              <ion-grid style="max-width: 465px;">
+                <div class="button-action">
+                  <ion-button class="signin-text" size="large" color="#e9905c">
+                    <b>Log in</b>
+                  </ion-button>
+                  <ion-button class="signup-text" size="small" color="#dff19c" routerLink="/register" routerDirection="root">
+                    <b>Registration</b>
+                  </ion-button>
+                </div>
+  
+                <div class="ion-padding">
+                  <ion-input placeholder="  Email" type="text" [(ngModel)]="ln.email"></ion-input> <br>
+                  <ion-input placeholder="  Password" type="password" [(ngModel)]="ln.password"></ion-input>
+                </div>
+                <ion-button class="actionbutton" expand="block" color="#20438d" style="max-width: 465px;" (click)="ln.login()">Log In</ion-button>
+              </ion-grid>
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-grid>
   </div>
 </ion-content>

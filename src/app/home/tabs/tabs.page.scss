@@ -1,8 +1,8 @@
 .background{
-    --background:url('../../../assets/360795.jpg');
+    --background:url('../../../assets/20091.jpg');
 }
 ion-content{
-    --background:url('../../../assets/gray_orange.jpg') 0 0/100% 100% no-repeat;
+    --background:url('../../../assets/login_background.jpg') 0 0/100% 100% no-repeat;
 }
 .over{
     position:auto;
@@ -11,22 +11,35 @@ ion-content{
     margin-left:60px;
     margin: 100px;
 }
+.card{
+    // --background: url('../../assets/login_background.jpg');
+     margin-top: 15em;
+ }
 .buttons-action{
     margin-left:5px;
 }
 .signin-text{
-    background-color: #e9905c;
-    margin-left: 10px;
+    background-color: #d4c3fa00;
+    border-radius: 5px;
+    height: 25px;
+    width: 50px;
+    float: left;
+    margin-left: 20px;
     font-size: small;
-    color: #05106e;
+    color: white;
     text-align: center;
     font-family: 'Nunito', sans-serif;
     text-transform: none;
 }
 .signup-text{
-    background-color: #dff19c;
-    font-size: x-small;
-    color: #2763e6;
+    background-color: #7100f300;
+    border-radius: 5px;
+    height: 25px;
+    width: 85px;
+    float: right;
+    margin-right: 20px;
+    font-size: small;
+    color: white;
     text-align: center;
     font-family: 'Nunito', sans-serif;
     text-transform: none;

@@ -10,6 +10,7 @@ import { LoginComponent } from '../../login/login.component'; // import login el
 })
 export class TabsPage implements OnInit {
 
+  logo = '../../../assets/logo.png';
   constructor(
     public Uauth: AuthService,
     public ln: LoginComponent

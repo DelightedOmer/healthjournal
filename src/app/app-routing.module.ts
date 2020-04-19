@@ -19,6 +19,22 @@ const routes: Routes = [
     path: 'cardiovascular',
     loadChildren: () => import('./home/cardiovascular/cardiovascular.module').then( m => m.CardiovascularPageModule)
   },
+  {
+    path: 'nick-name',
+    loadChildren: () => import('./home/chat/nick-name/nick-name.module').then( m => m.NickNamePageModule)
+  },
+  {
+    path: 'room',
+    loadChildren: () => import('./home/chat/room/room.module').then( m => m.RoomPageModule)
+  },
+  {
+    path: 'add-room',
+    loadChildren: () => import('./home/chat/add-room/add-room.module').then( m => m.AddRoomPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/chat/home/home.module').then( m => m.HomePageModule)
+  }
 ];
 
 @NgModule({
