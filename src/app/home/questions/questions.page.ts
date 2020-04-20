@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { AuthService } from 'src/app/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService } from 'src/app/user.service';
-import { merge } from 'rxjs';
 
 @Component({
   selector: 'app-questions',
@@ -24,11 +23,11 @@ export class QuestionsPage implements OnInit {
   fatique: any = 0;
   weight: any = 0;
 
-  happy: any = '../../../assets/1.png';
-  smile = '../../../assets/2.png';
-  normal = '../../../assets/3.png';
-  sad = '../../../assets/4.png';
-  cry = '../../../assets/5.png';
+  happy: any = '../../../assets/numbers/one.svg';
+  smile = '../../../assets/numbers/two.svg';
+  normal = '../../../assets/numbers/three.svg';
+  sad = '../../../assets/numbers/four.svg';
+  cry = '../../../assets/numbers/five.svg';
 
   verifiedEmail = true;
   date: string = new Date().toDateString();
@@ -37,11 +36,11 @@ export class QuestionsPage implements OnInit {
     public afAuth: AngularFireAuth,
     private router: Router,
     public navCtrl: NavController,
-    private afdb: AngularFireDatabase,
     private afStore: AngularFirestore,
     private Uauth: AuthService,
-    private user: UserService) {
-      this.afAuth.authState.subscribe(user$ => {
+    private alert: AlertController,
+    user: UserService) {
+      this.afAuth.authState.subscribe(() => {
         if (user) {
            setInterval(() => {
              this.verifiedEmail = this.afAuth.auth.currentUser.emailVerified;
@@ -61,6 +60,7 @@ export class QuestionsPage implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({
       pain: this.pain}, {merge: true});
+    return this.showAlert('You choose number ' + event);
   }
   breathChange(event) {
     this.breath = event;
@@ -69,6 +69,7 @@ export class QuestionsPage implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({
       breath: this.breath}, {merge: true});
+    return this.showAlert('You choose number ' + event);
   }
   legsChange(event) {
     this.legs = event;
@@ -77,6 +78,7 @@ export class QuestionsPage implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({
       legs: this.legs}, {merge: true});
+    return this.showAlert('You choose number ' + event);
   }
   coughChange(event) {
     this.cough = event;
@@ -85,6 +87,7 @@ export class QuestionsPage implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({
       cough: this.cough}, {merge: true});
+    return this.showAlert('You choose number ' + event);
   }
   hoarsenessChange(event) {
     this.hoarseness = event;
@@ -93,6 +96,7 @@ export class QuestionsPage implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({
       hoarseness: this.hoarseness}, {merge: true});
+    return this.showAlert('You choose number ' + event);
   }
   fatiqueChange(event) {
     this.hoarseness = event;
@@ -101,6 +105,7 @@ export class QuestionsPage implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({
       hoarseness: this.hoarseness}, {merge: true});
+    return this.showAlert('You choose number ' + event);
   }
   weightChange(event) {
     this.weight = event;
@@ -109,6 +114,7 @@ export class QuestionsPage implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({
       weight: this.weight}, {merge: true});
+    return this.showAlert('You choose number ' + event);
   }
 
   ngOnInit() {
@@ -118,4 +124,11 @@ export class QuestionsPage implements OnInit {
     window.location.reload();
   }
 
+  async showAlert(message: string) {
+    const alert = this.alert.create({
+      message,
+      buttons: ['OK']
+    });
+    await (await alert).present();
+  }
 }

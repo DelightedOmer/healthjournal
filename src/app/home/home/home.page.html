@@ -24,30 +24,48 @@
     <p>This is for Cardiovascular Patient</p>
   </div>
   <div class="raitng">
-    <ion-label>
+    <ion-title>
       How are you today?
-    </ion-label> <br>
-    <div class ="btn">
+    </ion-title> <br><br><br><br>
+  <!--  <ion-row row-1 class ="btn">
       <ion-button fill="clear" shape="circle" (click)="submit(1)">
         <ion-img class="pic" [src]="happy"></ion-img>
       </ion-button>
-      <ion-label size="4">Very Good</ion-label><br>
+      <ion-label size="4">Very Good</ion-label>
       <ion-button fill="clear" shape="circle" (click)="submit(2)">
         <ion-img class="pic" [src]="smile"></ion-img>
       </ion-button>
-      <ion-label>Good</ion-label><br>
+      <ion-label>Good</ion-label>
       <ion-button fill="clear" shape="circle" (click)="submit(3)">
         <ion-img class="pic" [src]="normal"></ion-img>
       </ion-button>
-      <ion-label>Nutral</ion-label><br>
+      <ion-label>Neutral</ion-label>
       <ion-button fill="clear" shape="circle" (click)="submit(4)">
         <ion-img class="pic" [src]="sad"></ion-img>
       </ion-button>
-      <ion-label>Bad</ion-label><br>
+      <ion-label>Bad</ion-label>
       <ion-button fill="clear" shape="circle" (click)="submit(5)">
         <ion-img class="pic" [src]="cry"></ion-img>
       </ion-button>
       <ion-label>Very Bad</ion-label>
+    </ion-row >-->
+    <div class ="btn">
+      <ion-row row-1>
+        <ion-img class="pic" [src]="happy" (click)="submit(1)"></ion-img>&nbsp;&nbsp;&nbsp;
+        <ion-img class="pic" [src]="smile" (click)="submit(2)"></ion-img>&nbsp;&nbsp;&nbsp;
+        <ion-img class="pic" [src]="normal" (click)="submit(3)"></ion-img>&nbsp;&nbsp;&nbsp;
+        <ion-img class="pic" [src]="sad" (click)="submit(4)"></ion-img>&nbsp;&nbsp;&nbsp;
+        <ion-img class="pic" [src]="cry" (click)="submit(5)"></ion-img>&nbsp;&nbsp;&nbsp;
+      </ion-row><br>
+      <div style="margin-left: -50px;">
+        <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-label>1</ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-label>2</ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-label>3</ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-label>4</ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-label>5</ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ion-label style="font-size: smaller; color:red;">High</ion-label>
+      </div>
     </div>
   </div>
 </ion-content>
