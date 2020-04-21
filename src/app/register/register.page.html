@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="content">
+    <ion-grid style="
+    max-width: 400px;">
+    <div class="card">
+      <div class="button-action">
+        <ion-button class="signin-text" fill="clear" size="small" routerLink="/tabs" routerDirection="root">
+          <b>Log in</b>
+        </ion-button>
+        <ion-button class="signup-text" fill="clear" size="large">
+          <b>Registration</b>
+        </ion-button>
+      </div>
+      <div class="ion-padding">
+        <ion-input placeholder="  Email" type="email" [(ngModel)]="email"></ion-input> <br>
+        <ion-input placeholder="  Password" type="password" [(ngModel)]="password"></ion-input> <br>
+        <ion-input placeholder="  Re-Password" type="password" [(ngModel)]="repassword"></ion-input><br>
+          <ion-select placeholder="Disease" style="background: white; border-radius: 5px;" required="true" [(ngModel)] = "patient">
+            <ion-select-option value="cancer">Cancer</ion-select-option>
+            <ion-select-option value="cardiovascular">Cardiovascular</ion-select-option>
+          </ion-select>
+      </div>
+      <ion-button class="actionbutton" expand="full" color="#20438d" (click)="register()" routerLink="/tabs">Registration</ion-button>
+      <ion-button fill="clear" style="font-size:10px; padding-bottom:20px;
+      color:lavender;margin-left:10px; text-transform:none; color:#1d20d8;" routerLink="/tabs" routerDirection="root">
+      Already have an account?</ion-button>
+    </div>
+  </ion-grid>
+  </div>
+  </ion-content>

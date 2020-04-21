@@ -1,0 +1,60 @@
+.background{
+    --background:url('../../../assets/20091.jpg');
+}
+ion-content{
+    --background:url('../../../assets/login_background.jpg') 0 0/100% 100% no-repeat;
+}
+.over{
+    position:auto;
+    max-width: 1000px;
+    margin-top:100px;
+    margin-left:60px;
+    margin: 100px;
+}
+.card{
+    // --background: url('../../assets/login_background.jpg');
+     margin-top: 15em;
+ }
+.buttons-action{
+    margin-left:5px;
+}
+.signin-text{
+    background-color: #d4c3fa00;
+    border-radius: 5px;
+    height: 25px;
+    width: 50px;
+    float: left;
+    margin-left: 20px;
+    font-size: small;
+    color: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    text-transform: none;
+}
+.signup-text{
+    background-color: #7100f300;
+    border-radius: 5px;
+    height: 25px;
+    width: 85px;
+    float: right;
+    margin-right: 20px;
+    font-size: small;
+    color: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    text-transform: none;
+}
+ion-input{
+background-color: #ededed;
+border-radius:5px;
+font-size:small;
+}
+.actionbutton{
+    background-color: #20438d;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-left:15px;
+    margin-right:13px;
+    font-size:small;
+    font-family:Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cardiovascular</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background" [fullscreen]="true" >
+  <div class="raitng">
+    <ion-label>
+      How are you today?
+    </ion-label> <br>
+    <div class ="btn">
+      <ion-button fill="clear" shape="circle" (click)="submit(1)">
+        <ion-img class="pic" [src]="happy"></ion-img>
+      </ion-button><br><br>
+      <ion-button fill="clear" shape="circle" (click)="submit(2)">
+        <ion-img class="pic" [src]="smile"></ion-img>
+      </ion-button><br><br>
+      <ion-button fill="clear" shape="circle" (click)="submit(3)">
+        <ion-img class="pic" [src]="normal"></ion-img>
+      </ion-button><br><br>
+      <ion-button fill="clear" shape="circle" (click)="submit(4)">
+        <ion-img class="pic" [src]="sad"></ion-img>
+      </ion-button><br><br>
+      <ion-button fill="clear" shape="circle" (click)="submit(5)">
+        <ion-img class="pic" [src]="cry"></ion-img>
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
