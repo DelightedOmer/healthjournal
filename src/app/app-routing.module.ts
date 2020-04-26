@@ -16,10 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   {
-    path: 'cardiovascular',
-    loadChildren: () => import('./home/cardiovascular/cardiovascular.module').then( m => m.CardiovascularPageModule)
-  },
-  {
     path: 'nick-name',
     loadChildren: () => import('./home/chat/nick-name/nick-name.module').then( m => m.NickNamePageModule)
   },
@@ -34,6 +30,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/chat/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'profile/:id',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   }
 ];
 

@@ -7,7 +7,8 @@ import { QuestionsPage } from './questions.page';
 
 import { IonicRatingModule } from 'ionic-rating';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-
+import { CardiovascularComponent } from '../../cardiovascular/cardiovascular.component';
+import { CancerComponent } from '../../cancer/cancer.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireDatabaseModule,
     RouterModule.forChild([{ path: '', component: QuestionsPage }])
   ],
-  declarations: [QuestionsPage]
+  declarations: [QuestionsPage],
+  providers: [CardiovascularComponent, CancerComponent]
 })
 export class QuestionsPageModule {}

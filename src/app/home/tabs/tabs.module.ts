@@ -6,7 +6,7 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 import { LoginComponent } from '../../login/login.component';
-
+import { RegisterPage } from '../../register/register.page';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +15,6 @@ import { LoginComponent } from '../../login/login.component';
     TabsPageRoutingModule
   ],
   declarations: [TabsPage],
-  providers: [LoginComponent]
+  providers: [LoginComponent, RegisterPage]
 })
 export class TabsPageModule {}

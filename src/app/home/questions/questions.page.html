@@ -1,21 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      <ion-icon name="help-circle"></ion-icon>
+      <ion-icon name="help-circle-outline"></ion-icon>
       Wellbeing Questions.....
-      <ion-icon class="btn" name="arrow-forward-circle" (click)="nextbtn()" size="large"></ion-icon>
+      <ion-icon class="btn" name="arrow-forward-circle-outline" (click)="nextbtn()" size="large"></ion-icon>
   </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content [fullscreen]="true">
-  <div class="header">
-    <ion-title style="color: black;">
-      Symptoms
-    </ion-title>
-  </div>
-
+<ion-content *ngIf= "(info |async)?.patient === 'cardiovascular'" [fullscreen]="true">
   <div>
     <ion-grid class="questions">
       <div>
@@ -23,94 +17,264 @@
       </div>
       <div class ="btn">
         <ion-row row-1>
-        <!--  <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;-->
-          <img class="pic" [src]="happy" (click)="painChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="smile" (click)="painChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="normal" (click)="painChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="sad" (click)="painChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cry" (click)="painChange(5)"/>&nbsp;&nbsp;&nbsp;
-        <!--  <ion-label style="font-size: smaller; color:red;">High</ion-label>-->
+         <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="cardi.painChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="cardi.painChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="cardi.painChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="cardi.painChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="cardi.painChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
         </ion-row>
-      </div><br>
+      </div>
 
       <div>
         <p>Do you have Shortness of Breath?</p>
       </div>
       <div class ="btn">
         <ion-row row-1>
-          <img class="pic" [src]="happy" (click)="breathChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="smile" (click)="breathChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="normal" (click)="breathChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="sad" (click)="breathChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cry" (click)="breathChange(5)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="cardi.breathChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="cardi.breathChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="cardi.breathChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="cardi.breathChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="cardi.breathChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
         </ion-row>
-      </div><br>
+      </div>
 
       <div>
         <p>Do you Sweat you Legs?</p>
       </div>
       <div class ="btn">
         <ion-row row-1>
-          <img class="pic" [src]="happy" (click)="legsChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="smile" (click)="legsChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="normal" (click)="legsChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="sad" (click)="legsChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cry" (click)="legsChange(5)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="cardi.legsChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="cardi.legsChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="cardi.legsChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="cardi.legsChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="cardi.legsChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
         </ion-row>
-      </div><br>
+      </div>
 
       <div>
         <p>Do you have Cough?</p>
       </div>
       <div class ="btn">
         <ion-row row-1>
-          <img class="pic" [src]="happy" (click)="coughChange(1)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="smile" (click)="coughChange(2)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="normal" (click)="coughChange(3)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="sad" (click)="coughChange(4)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cry" (click)="coughChange(5)">&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="cardi.coughChange(0)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="cardi.coughChange(1)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="cardi.coughChange(2)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="cardi.coughChange(3)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="cardi.coughChange(4)">&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
         </ion-row>
-      </div><br>
+      </div>
 
       <div>       
         <p>Do you feel Hoarseness?</p>
       </div>
       <div class ="btn">
         <ion-row row-1>
-          <img class="pic" [src]="happy" (click)="hoarsenessChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="smile" (click)="hoarsenessChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="normal" (click)="hoarsenessChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="sad" (click)="hoarsenessChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cry" (click)="hoarsenessChange(5)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="cardi.hoarsenessChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="cardi.hoarsenessChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="cardi.hoarsenessChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="cardi.hoarsenessChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="cardi.hoarsenessChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
         </ion-row>
-      </div><br>
+      </div>
 
       <div>
         <p>Do you feel Fatigue?</p>
       </div>
       <div class ="btn">
         <ion-row row-1>
-          <img class="pic" [src]="happy" (click)="fatiqueChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="smile" (click)="fatiqueChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="normal" (click)="fatiqueChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="sad" (click)="fatiqueChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cry" (click)="fatiqueChange(5)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="cardi.fatiqueChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="cardi.fatiqueChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="cardi.fatiqueChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="cardi.fatiqueChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="cardi.fatiqueChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
         </ion-row>
-      </div><br>
+      </div>
 
       <div>
         <p>Do you have Unexplained loss of Appetite/Weight?</p>
       </div>
       <div class ="btn">
         <ion-row row-1>
-          <img class="pic" [src]="happy" (click)="weightChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="smile" (click)="weightChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="normal" (click)="weightChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="sad" (click)="weightChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cry" (click)="weightChange(5)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="cardi.weightChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="cardi.weightChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="cardi.weightChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="cardi.weightChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="cardi.weightChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
         </ion-row>
         </div>
       </ion-grid>
   </div>
-  <div size="x-small">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+  <!--<div size="x-small">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+</ion-content>
+
+
+<ion-content *ngIf= "(info |async)?.patient === 'cancer'" [fullscreen]="true">
+  <div>
+    <ion-grid class="questions">
+      <div>
+        <p>Pain</p>
+      </div>
+      <div class ="btn">
+        <ion-row row-1>
+         <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="canc.painChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="canc.painChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="canc.painChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="canc.painChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="canc.painChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
+        </ion-row>
+      </div>
+
+      <div>
+        <p>Nausea / Vomiting / Diarrhea</p>
+      </div>
+      <div class ="btn">
+        <ion-row row-1>
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="canc.stomachProblemChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="canc.stomachProblemChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="canc.stomachProblemChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="canc.stomachProblemChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="canc.stomachProblemChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
+        </ion-row>
+      </div>
+
+      <div>
+        <p>Dry mouth or lips</p>
+      </div>
+      <div class ="btn">
+        <ion-row row-1>
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="canc.dryMouthChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="canc.dryMouthChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="canc.dryMouthChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="canc.dryMouthChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="canc.dryMouthChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
+        </ion-row>
+      </div>
+
+      <div>
+        <p>Skin sensitivity including itchiness</p>
+      </div>
+      <div class ="btn">
+        <ion-row row-1>
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="canc.skinSensitivityChange(0)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="canc.skinSensitivityChange(1)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="canc.skinSensitivityChange(2)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="canc.skinSensitivityChange(3)">&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="canc.skinSensitivityChange(4)">&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
+        </ion-row>
+      </div>
+
+      <div>       
+        <p>Neuropathy (i.e. numbness)</p>
+      </div>
+      <div class ="btn">
+        <ion-row row-1>
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="canc.neuropathyChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="canc.neuropathyChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="canc.neuropathyChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="canc.neuropathyChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="canc.neuropathyChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
+        </ion-row>
+      </div>
+
+      <div>
+        <p>Tiredness / Fatigue</p>
+      </div>
+      <div class ="btn">
+        <ion-row row-1>
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="canc.tirednessChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="canc.tirednessChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="canc.tirednessChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="canc.tirednessChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="canc.tirednessChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
+        </ion-row>
+      </div>
+
+      <div>
+        <p>Swelling / Fluid retention</p>
+      </div>
+      <div class ="btn">
+        <ion-row row-1>
+          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.zero" (click)="canc.swellingChange(0)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.one" (click)="canc.swellingChange(1)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.two" (click)="canc.swellingChange(2)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.three" (click)="canc.swellingChange(3)"/>&nbsp;&nbsp;&nbsp;
+          <img class="pic" [src]="cardi.four" (click)="canc.swellingChange(4)"/>&nbsp;&nbsp;&nbsp;
+          <ion-label style="font-size: smaller; color:red;">High</ion-label>
+        </ion-row>
+        </div>
+
+        <div>
+          <p>Bladder control issues</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+            <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+            <img class="pic" [src]="cardi.zero" (click)="canc.bladderControlIssuesChange(0)"/>&nbsp;&nbsp;&nbsp;
+            <img class="pic" [src]="cardi.one" (click)="canc.bladderControlIssuesChange(1)"/>&nbsp;&nbsp;&nbsp;
+            <img class="pic" [src]="cardi.two" (click)="canc.bladderControlIssuesChange(2)"/>&nbsp;&nbsp;&nbsp;
+            <img class="pic" [src]="cardi.three" (click)="canc.bladderControlIssuesChange(3)"/>&nbsp;&nbsp;&nbsp;
+            <img class="pic" [src]="cardi.four" (click)="canc.bladderControlIssuesChange(4)"/>&nbsp;&nbsp;&nbsp;
+            <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+          </div>
+
+          <div>
+            <p>Unintentional weight gain / loss</p>
+          </div>
+          <div class ="btn">
+            <ion-row row-1>
+              <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+              <img class="pic" [src]="cardi.zero" (click)="canc.unintentionalWeightChange(0)"/>&nbsp;&nbsp;&nbsp;
+              <img class="pic" [src]="cardi.one" (click)="canc.unintentionalWeightChange(1)"/>&nbsp;&nbsp;&nbsp;
+              <img class="pic" [src]="cardi.two" (click)="canc.unintentionalWeightChange(2)"/>&nbsp;&nbsp;&nbsp;
+              <img class="pic" [src]="cardi.three" (click)="canc.unintentionalWeightChange(3)"/>&nbsp;&nbsp;&nbsp;
+              <img class="pic" [src]="cardi.four" (click)="canc.unintentionalWeightChange(4)"/>&nbsp;&nbsp;&nbsp;
+              <ion-label style="font-size: smaller; color:red;">High</ion-label>
+            </ion-row>
+            </div>
+
+            <div>
+              <p>Night sweats / hot flashes</p>
+            </div>
+            <div class ="btn">
+              <ion-row row-1>
+                <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+                <img class="pic" [src]="cardi.zero" (click)="canc.nightSweatsFlashesChange(0)"/>&nbsp;&nbsp;&nbsp;
+                <img class="pic" [src]="cardi.one" (click)="canc.nightSweatsFlashesChange(1)"/>&nbsp;&nbsp;&nbsp;
+                <img class="pic" [src]="cardi.two" (click)="canc.nightSweatsFlashesChange(2)"/>&nbsp;&nbsp;&nbsp;
+                <img class="pic" [src]="cardi.three" (click)="canc.nightSweatsFlashesChange(3)"/>&nbsp;&nbsp;&nbsp;
+                <img class="pic" [src]="cardi.four" (click)="canc.nightSweatsFlashesChange(4)"/>&nbsp;&nbsp;&nbsp;
+                <ion-label style="font-size: smaller; color:red;">High</ion-label>
+              </ion-row>
+              </div>
+      </ion-grid>
+  </div>
+  <!--<div size="x-small">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
 </ion-content>

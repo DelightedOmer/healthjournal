@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { UserService, Userelement } from 'src/app/user.service';
 import { take, map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,8 @@ export class HomePage implements OnInit {
     public Uauth: AuthService,
     public alert: AlertController,
     public afAuth: AngularFireAuth,
-    private user: UserService) {
+    private user: UserService,
+    private router: Router) {
 
     //  this.afAuth.authState.subscribe(user$ => {
       //  if (user) {
@@ -47,24 +49,21 @@ export class HomePage implements OnInit {
       feel: feelings}, {merge: true});
     console.log(feelings);
     // tslint:disable-next-line: no-conditional-assignment
-    if (feelings === 1) {
-      this.showAlert('Hurray..!', 'You are very happy today');
-    } else if (feelings === 2) {
-      this.showAlert('Hurray..!', 'You are happy today');
-    } else if (feelings === 3) {
-      this.showAlert('Hello..!', 'You are good today');
-    } else if (feelings === 4) {
-      this.showAlert('Oh no..!', 'You are sad today');
-    } else {
-      this.showAlert('Oh no!', 'You are so sad today');
-    }
+  //  if (feelings === 1) {
+  //    this.showAlert('Hurray..!', 'You are very happy today');
+  //  } else if (feelings === 2) {
+  //    this.showAlert('Hurray..!', 'You are happy today');
+  //  } else if (feelings === 3) {
+  //    this.showAlert('Hello..!', 'You are good today');
+  //  } else if (feelings === 4) {
+ //     this.showAlert('Oh no..!', 'You are sad today');
+ //   } else {
+ //     this.showAlert('Oh no!', 'You are so sad today');
+ //   }
+    return this.router.navigate(['/tabs/questions']);
   }
 
   ngOnInit() {
-    const uid = this.Uauth.cUid;
-    console.log(uid);
-    this.info = this.user.getUser(uid);
-    console.log(this.info);
   }
 
   refresh() {

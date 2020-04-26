@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { ProfilePage } from 'src/app/profile/profile.page';
 
 @Component({
   selector: 'app-nick-name',
@@ -9,9 +10,12 @@ import { Router, NavigationExtras } from '@angular/router';
 
 export class NickNamePage implements OnInit {
   data = { nickName: '' };
+
   constructor(
-    private router: Router
-  ) { }
+    private router: Router,
+    public pro: ProfilePage
+  ) {
+   }
 
   enterNickname() {
     const navExtras: NavigationExtras = {

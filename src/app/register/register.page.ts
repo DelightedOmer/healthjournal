@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth} from '@angular/fire/auth';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 import { AlertController } from '@ionic/angular';
 
@@ -15,6 +15,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  logo = '../../assets/logo.png';
 
   email?: string;
   password?: string;
@@ -46,7 +47,11 @@ async register() {
       patient: this.patient
       });
       console.log(credential.user.uid);
-      this.router.navigate(['/tabs']);
+
+      const navExtras: NavigationExtras = {
+        queryParams: { uid: credential.user.uid}
+      };
+      this.router.navigate(['/profile'], navExtras);
       this.afAuth.auth.currentUser.sendEmailVerification();
       console.log('We have sent you an email verification');
       this.showAlert('Verification', 'We have sent you an email verification');

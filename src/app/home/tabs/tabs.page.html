@@ -28,31 +28,19 @@
 
 <ng-template #login>
   <ion-content>
-  <div class="over">
-    <ion-grid style="max-width: 465px;">
-      <div class="card">
-        <ion-row>
-          <ion-col>
-              <ion-grid style="max-width: 465px;">
-                <div class="button-action">
-                  <ion-button class="signin-text" size="large" color="#e9905c">
-                    <b>Log in</b>
-                  </ion-button>
-                  <ion-button class="signup-text" size="small" color="#dff19c" routerLink="/register" routerDirection="root">
-                    <b>Registration</b>
-                  </ion-button>
-                </div>
-  
-                <div class="ion-padding">
-                  <ion-input placeholder="  Email" type="text" [(ngModel)]="ln.email"></ion-input> <br>
-                  <ion-input placeholder="  Password" type="password" [(ngModel)]="ln.password"></ion-input>
-                </div>
-                <ion-button class="actionbutton" expand="block" color="#20438d" style="max-width: 465px;" (click)="ln.login()">Log In</ion-button>
-              </ion-grid>
-          </ion-col>
-        </ion-row>
-      </div>
-    </ion-grid>
-  </div>
+    <div class="appName">
+      <img [src]="ln.logo"/>
+      <ion-title style="font-size: 30px;">Health Journal</ion-title>
+    </div>
+  <ion-grid class="over">
+    <ion-card-content>
+      <ion-input class="input" placeholder="  Email" type="text" [(ngModel)]="ln.email"></ion-input>
+      <br>
+      <ion-input class="input" placeholder="  Password" type="password" [(ngModel)]="ln.password"></ion-input>
+      <br><ion-button expand="block" style="background-color: royalblue;" (click)="ln.login()">Log In</ion-button>
+    </ion-card-content>
+    <ion-label routerLink='/register' routerDirection='root'>Create a new account
+    </ion-label>
+  </ion-grid>
 </ion-content>
 </ng-template>

@@ -2,15 +2,55 @@
   <ion-toolbar>
     <ion-title>
       Settings
-      <ion-icon name="log-out-outline" class="btn" size="large" (click)="logOut()"></ion-icon>
     </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="logOut()">Log Out
+          <ion-icon name="log-out-outline" class="btn" size="large"></ion-icon>
+        </ion-button></ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content padding>
+  <div *ngIf="Profile">
+    <ion-list style="background-color: transparent; margin-left: 5em;">
+      <ion-list-header>
+        <ion-title>Profile</ion-title>
+      </ion-list-header>
+      <ion-label>Full Name: {{(Profile |async)?.fullName}}</ion-label><br><br>
+      <ion-label>Nick Name: {{(Profile |async)?.nickName}}</ion-label><br><br>
+      <ion-label>Gender: {{(Profile |async)?.gender}}</ion-label><br><br>
+      <ion-label>Age: {{(Profile |async)?.age}}</ion-label><br><br>
+      <ion-label>Martial Status: {{(Profile |async)?.maritalStatus}}</ion-label><br><br>
+      
+      <ion-label>Address: 
+        <Address>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;State: {{(Profile |async)?.state}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City: {{(Profile |async)?.city}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Street Name: {{(Profile |async)?.streetName}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Street Number: {{(Profile |async)?.streetNumber}}
+        </Address>
+      </ion-label><br><br>
+
+      <ion-label>Occupation</ion-label><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Are you Working now?: {{(Profile |async)?.work}}</ion-label><br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Nature of Job: {{(Profile |async)?.natureOfJob}}</ion-label><br><br>
+
+      <ion-label>Chronic Problem</ion-label><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Current status: {{(Profile |async)?.chronicProblem}}</ion-label><br><br>
+
+      <ion-label>Treatment</ion-label><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Hospital: {{(Profile |async)?.hospital}}</ion-label><br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Doctor: {{(Profile |async)?.doctor}}</ion-label><br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Procedure: {{(Profile |async)?.procedure}}</ion-label><br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Medication: {{(Profile |async)?.medication}}</ion-label><br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ion-label>Side effect: {{(Profile |async)?.sideEffect}}</ion-label><br><br>
+
+      <ion-label>Ethnicity: {{(Profile |async)?.ethnicity}}</ion-label><br><br>
+      <ion-label>Food habbit: {{(Profile |async)?.foodHabbit}}</ion-label><br><br>
+      <ion-label>Cities lived in the past: {{(Profile |async)?.citiesLivedpast}}</ion-label><br><br>
+
+    </ion-list><br><br>
+    <ion-button expand="full" [routerLink]="['/profile', uid]">Edit profile</ion-button>
+
+  </div>
 </ion-content>

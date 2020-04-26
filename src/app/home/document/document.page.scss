@@ -1,10 +1,18 @@
 ion-toolbar{
-  --background:url('../../../assets/69.jpg') 0 0/100% 100% no-repeat;
+  --background:url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
   color:black;
 }
 ion-content{
-  --background:url('../../../assets/3699427.jpg') 0 0/100% 100% no-repeat;
+  --background:url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
   }
+ion-card{
+  background-color: rgba(0, 0, 0, 0.603);
+  max-width: 80%;
+  margin-left: 10%;
+  ion-card-header{
+    color: white;
+  }
+}
 p{
   color: black;
 }
@@ -27,5 +35,23 @@ ion-label{
   margin-left: 2em;
 }
 .submit{
-  margin-left: 3em;
+  margin-left: 10%;
+}
+.food{
+  color: rgb(153, 255, 0);
+}
+.exercise{
+  color: rgb(208, 158, 255);
+}
+.entertaintments{
+  color: rgb(255, 124, 124);
+}
+.visits{
+  color: rgb(250, 172, 70);
+}
+.events{
+  color: rgb(42, 187, 255);
+}
+.others{
+  color: rgb(124, 255, 200);
 }

@@ -16,12 +16,12 @@ import * as firebase from 'firebase';
 export class DocumentPage implements OnInit {
 
 
-  food = [];
-  exercise = [];
-  entertaintments = [];
-  visits = [];
-  events = [];
-  others = [];
+  food: string = null;
+  exercise: string = null;
+  entertaintments: string = null;
+  visits: string = null;
+  events: string = null;
+  others: string = null;
 
   completedTags = [
       'breakfast', 'lunch', 'dinner',
@@ -59,12 +59,10 @@ export class DocumentPage implements OnInit {
     const date: string = new Date().toDateString();
 
     const res = this.afStore.doc(`users/${this.Uauth.cUid}/survey/${date}`);
-    const data = {
-      food, exercise, entertaintments, visits, events, ohters
+    const data = {food, exercise, entertaintments, visits, events, ohters
     };
 
     res.update({summary: data});
     this.router.navigate(['/tabs/questions']);
-    return this.router.navigate(['/tabs']);
   }
 }

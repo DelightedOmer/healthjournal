@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   email: any = '';
   password: string = null;
+  logo = '../../../assets/logo.png';
 
   constructor(public afAuth: AngularFireAuth,
               public afStore: AngularFirestore,
@@ -32,12 +33,6 @@ export class LoginComponent implements OnInit {
     const{email, password } = this;
     try {
         const res = await this.afAuth.auth.signInWithEmailAndPassword(email, password );
-        if (res.user) {
-          this.user.setUser({
-            email,
-            uid: res.user.uid
-          });
-        }
     } catch (error) {
         console.dir(error);
         this.showAlert('Error', error.message);

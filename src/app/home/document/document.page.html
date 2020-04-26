@@ -4,7 +4,7 @@
         <ion-icon name="document-text-outline"></ion-icon>
         Daily Journal  .....</ion-title>
         <ion-button slot="end" (click)="backbtn()" fill="clear">
-          <ion-icon name="arrow-back-outline"></ion-icon>
+          <ion-icon name="arrow-back-circle-outline" size="large"></ion-icon>
         </ion-button>
     </ion-toolbar>
   </ion-header>
@@ -17,91 +17,19 @@
       </ion-label>
     </div>
     <div>
-      <ion-card-content class="input">
-        <p>type your today's summary ....</p>
-        <div>
-          <ion-grid class="tags">
-              <ion-label>Food</ion-label>
-              <tag-input
-                required="false"
-                placeholder="food"
-                once="true"
-                spellcheck="true"
-                separatorKeys=","
-                [(ngModel)]="food"
-                [onlyFromAutocomplete]="false">
-                <tag-input-dropdown [showDropdownIfEmpty]="false"
-                  [autocompleteItems]="completedTags">
-                </tag-input-dropdown>
-              </tag-input><br>
-              <ion-label>Exercise</ion-label>
-              <tag-input
-                required="false"
-                placeholder="exercise"
-                once="true"
-                spellcheck="true"
-                separatorKeys=","
-                [(ngModel)]="exercise"
-                [onlyFromAutocomplete]="false">
-                <tag-input-dropdown [showDropdownIfEmpty]="false"
-                  [autocompleteItems]="completedTags">
-                </tag-input-dropdown>
-              </tag-input><br>
-              <ion-label>Entertaintments</ion-label>
-              <tag-input
-                required="false"
-                placeholder="entertaintments"
-                once="true"
-                spellcheck="true"
-                separatorKeys=","
-                [(ngModel)]="entertaintments"
-                [onlyFromAutocomplete]="false">
-                <tag-input-dropdown [showDropdownIfEmpty]="false"
-                  [autocompleteItems]="completedTags">
-                </tag-input-dropdown>
-              </tag-input><br>
-              <ion-label>Visits</ion-label>
-              <tag-input
-                required="false"
-                placeholder="visits"
-                once="true"
-                spellcheck="true"
-                separatorKeys=","
-                [(ngModel)]="visits"
-                [onlyFromAutocomplete]="false">
-                <tag-input-dropdown [showDropdownIfEmpty]="false"
-                  [autocompleteItems]="completedTags">
-                </tag-input-dropdown>
-              </tag-input><br>
-              <ion-label>Events</ion-label>
-              <tag-input
-                required="false"
-                placeholder="events"
-                once="true"
-                spellcheck="true"
-                separatorKeys=","
-                [(ngModel)]="events"
-                [onlyFromAutocomplete]="false">
-                <tag-input-dropdown [showDropdownIfEmpty]="false"
-                  [autocompleteItems]="completedTags">
-                </tag-input-dropdown>
-              </tag-input><br>
-              <ion-label>Others</ion-label>
-              <tag-input
-                required="false"
-                placeholder="others"
-                once="true"
-                spellcheck="true"
-                separatorKeys=","
-                [(ngModel)]="others"
-                [onlyFromAutocomplete]="false">
-                <tag-input-dropdown [showDropdownIfEmpty]="false"
-                  [autocompleteItems]="completedTags">
-                </tag-input-dropdown>
-              </tag-input>
-          </ion-grid>
-        </div>
-      </ion-card-content>
+      <ion-card>
+        <ion-card-header>
+          Type your today's summary ....
+        </ion-card-header>
+        <ion-card-content>
+          <ion-input class="food" placeholder=" food" [(ngModel)]="food"></ion-input>
+          <ion-input class="exercise" placeholder=" exercise" [(ngModel)]="exercise"></ion-input>
+          <ion-input class="entertaintments" placeholder=" entertaintments" [(ngModel)]="entertaintments"></ion-input>
+          <ion-input class="visits" placeholder=" visits" [(ngModel)]="visits"></ion-input>
+          <ion-input class="events" placeholder=" events" [(ngModel)]="events"></ion-input>
+          <ion-input class="others" placeholder=" others" [(ngModel)]="others"></ion-input>
+        </ion-card-content>
+      </ion-card>
       <div class="submit">
         <ion-button (click)="submit()">Submit</ion-button>
       </div>

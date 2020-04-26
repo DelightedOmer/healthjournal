@@ -1,0 +1,154 @@
+<ion-header>
+  <ion-toolbar color= "primary">
+      <ion-row size="1">
+        <ion-buttons>
+          <ion-button *ngIf="profile" (click)="back()" icononly="true">
+            <ion-icon name="return-down-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title >Setup Profile</ion-title>
+      </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-grid class="grid">
+  <div>
+  <ion-card-content class="input">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Full Name: </ion-label>
+        <ion-input type="text" autocapitalize="on" required="true" [(ngModel)]="profile.fullName"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Nick Name: </ion-label>
+        <ion-input required="true" [(ngModel)]="profile.nickName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Gender: </ion-label>
+          <ion-select required="true" [(ngModel)] = "profile.gender">
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+          </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Age: </ion-label>
+        <ion-input type="number" required="true" [(ngModel)]="profile.age"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Marital Status: </ion-label>
+        <ion-select required="true" [(ngModel)] = "profile.maritalStatus">
+          <ion-select-option value="Un-Married">Un-Married</ion-select-option>
+          <ion-select-option value="Married">Married</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-list>
+        <ion-list-header>Address</ion-list-header>
+        
+      <ion-item>
+  &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>State: </ion-label>
+        <ion-input [placeholder]="profile.state" type="string" required="true" [(ngModel)]="profile.state"></ion-input>
+      </ion-item>
+
+      <ion-item>
+  &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>City: </ion-label>
+        <ion-input [placeholder]="profile.city" type="string" required="true" [(ngModel)]="profile.city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+  &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Stree Name: </ion-label>
+        <ion-input [placeholder]="profile.streetName" type="string" required="false" [(ngModel)]="profile.streetName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+  &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Stree Number: </ion-label>
+        <ion-input [placeholder]="profile.streetNumber" type="number" required="false" [(ngModel)]="profile.streetNumber"></ion-input>
+      </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>Occupation:</ion-list-header>
+      <ion-item>
+  &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Are you Working now?: </ion-label>
+          <ion-input type="string" required="true" [(ngModel)]="profile.work"></ion-input>
+        </ion-item>
+  
+      <ion-item>
+  &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Nature of Job: </ion-label>
+          <ion-input type="string" required="false" [(ngModel)]="profile.natureOfJob"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>Chronic Problem:</ion-list-header>
+        <ion-item>
+          &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Current Status: </ion-label>
+          <ion-input type="string" required="true" [(ngModel)]="profile.chronicProblem"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-list-header>Treatment:</ion-list-header>
+        <ion-item>
+          &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Hospital: </ion-label>
+          <ion-input [placeholder]="profile.hospital" type="string" required="false" [(ngModel)]="profile.hospital"></ion-input>
+        </ion-item><ion-item>
+          &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Doctore: </ion-label>
+          <ion-input [placeholder]="profile.doctor" type="string" required="false" [(ngModel)]="profile.doctor"></ion-input>
+        </ion-item><ion-item>
+          &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Procedure: </ion-label>
+          <ion-input [placeholder]="profile.procedure" type="string" required="true" [(ngModel)]="profile.procedure"></ion-input>
+        </ion-item><ion-item>
+          &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Medication: </ion-label>
+          <ion-input [placeholder]="profile.medication" type="string" required="true" [(ngModel)]="profile.medication"></ion-input>
+        </ion-item><ion-item>
+          &nbsp;&nbsp;&nbsp;&nbsp;<ion-label floating>Side effect: </ion-label>
+          <ion-input [placeholder]="profile.sideEffect" type="string" required="true" [(ngModel)]="profile.sideEffect"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <ion-label floating>Ethinicity: </ion-label>
+        <ion-input type="string" required="true" [(ngModel)]="profile.ethnicity"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Food Habbit: </ion-label>
+        <ion-input type="string" required="true" [(ngModel)]="profile.foodHabbit"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Cities lived in the past: </ion-label>
+        <ion-input type="string" required="true" [(ngModel)]="profile.citiesLivedpast"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </ion-card-content>
+</div>
+</ion-grid>
+</ion-content>
+ 
+<ion-footer *ngIf="updateUid; else setup">
+  <ion-toolbar color="success">
+    <ion-button expand="full" fill="clear" color="light" (click)="updateProfile()">
+      <ion-icon name="save" slot="start"></ion-icon>
+      Update
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+<ng-template #setup>
+  <ion-footer>
+    <ion-toolbar color="success">
+      <ion-button expand="full" fill="clear" color="light" (click)="createProfile()">
+        <ion-icon name="checkmark" slot="start"></ion-icon>
+        Confirm
+      </ion-button>
+    </ion-toolbar>
+  </ion-footer>
+</ng-template>
