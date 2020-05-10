@@ -10,10 +10,7 @@
   </ion-toolbar>    
 </ion-header>
 
-<ion-content padding>
-  <div *ngIf="nickName" style="margin-top: 10px;">
-    <ion-title>Your Nickname: {{nickName}}</ion-title>
-  </div>
+<ion-content padding><br>
   <ion-list>
     <ion-item *ngFor="let room of rooms">
     <ion-button (click)="joinRoom(room.key)">
