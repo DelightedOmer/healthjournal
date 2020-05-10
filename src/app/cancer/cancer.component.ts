@@ -14,16 +14,16 @@ import { UserService } from 'src/app/user.service';
 })
 export class CancerComponent implements OnInit {
 
-  stomachProblem: any = 0;
-  dryMouth: any = 0;
-  skinSensitivity: any = 0;
-  neuropathy: any = 0;
-  tiredness: any = 0;
-  pain: any = 0;
-  swelling: any = 0;
-  bladderControlIssues: any = 0;
-  unintentionalWeight: any = 0;
-  nightSweatsFlashes: any = 0;
+  pain: any = 0;  painDisable: boolean;
+  stomachProblem: any = 0; stomachDisable: boolean;
+  dryMouth: any = 0; dryMouthDisable: boolean;
+  skinSensitivity: any = 0; skinSensitivityDisable: boolean;
+  neuropathy: any = 0; neuropathyDisable: boolean;
+  tiredness: any = 0; tirednessDisable: boolean;
+  swelling: any = 0;  swellingDisable: boolean;
+  bladderControlIssues: any = 0;  bladderControlIssuesDisable: boolean;
+  unintentionalWeight: any = 0; unintentionalWeightDisbale: boolean;
+  nightSweatsFlashes: any = 0;  nightSweatsFlashesDisable: boolean;
 
   zero = '../../../assets/numbers/zero.png';
   one = '../../../assets/numbers/one.png';
@@ -49,6 +49,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer:
       {pain: this.pain}}, {merge: true});
+    this.painDisable = true;
    // return this.showAlert('You choose number ' + event);
   }
   stomachProblemChange(event) {
@@ -58,7 +59,8 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       stomachProblem: this.stomachProblem}}, {merge: true});
-   // return this.showAlert('You choose number ' + event);
+    this.stomachDisable = true;
+      // return this.showAlert('You choose number ' + event);
   }
   dryMouthChange(event) {
     this.dryMouth = event;
@@ -67,6 +69,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       dryMouth: this.dryMouth}}, {merge: true});
+    this.dryMouthDisable = true;
    // return this.showAlert('You choose number ' + event);
   }
   skinSensitivityChange(event) {
@@ -76,6 +79,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       skinSensitivity: this.skinSensitivity}}, {merge: true});
+    this.skinSensitivityDisable = true;
    // return this.showAlert('You choose number ' + event);
   }
   neuropathyChange(event) {
@@ -85,6 +89,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       neuropathy: this.neuropathy}}, {merge: true});
+    this.neuropathyDisable = true;
   //  return this.showAlert('You choose number ' + event);
   }
   tirednessChange(event) {
@@ -94,6 +99,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       tiredness: this.tiredness}}, {merge: true});
+    this.tirednessDisable = true;
   //  return this.showAlert('You choose number ' + event);
   }
   swellingChange(event) {
@@ -103,6 +109,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       swelling: this.swelling}}, {merge: true});
+    this.swellingDisable = true;
     // return this.showAlert('You choose number ' + event);
   }
   bladderControlIssuesChange(event) {
@@ -112,6 +119,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       bladderControlIssues: this.bladderControlIssues}}, {merge: true});
+    this.bladderControlIssuesDisable = true;
     // return this.showAlert('You choose number ' + event);
   }
   unintentionalWeightChange(event) {
@@ -121,6 +129,7 @@ export class CancerComponent implements OnInit {
     .doc(`users/${this.Uauth.cUid}/survey/${this.date}`)
     .set({cancer: {
       unintentionalWeight: this.unintentionalWeight}}, {merge: true});
+    this.unintentionalWeightDisbale = true;
     // return this.showAlert('You choose number ' + event);
   }
   nightSweatsFlashesChange(event) {
@@ -131,6 +140,7 @@ export class CancerComponent implements OnInit {
     .set({cancer: {
       nightSweatsFlashes: this.nightSweatsFlashes}}, {merge: true});
     // return this.showAlert('You choose number ' + event);
+    this.nightSweatsFlashesDisable = true;
     return this.router.navigate(['/tabs/questions/document']);
   }
 }

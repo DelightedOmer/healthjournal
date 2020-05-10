@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
+      <ion-icon name="cog-outline"></ion-icon>
       Settings
     </ion-title>
       <ion-buttons slot="end">
@@ -12,10 +13,10 @@
 
 <ion-content padding>
   <div *ngIf="Profile">
+    <ion-list-header>
+      <ion-title>Profile</ion-title>
+    </ion-list-header>
     <ion-list style="background-color: transparent; margin-left: 5em;">
-      <ion-list-header>
-        <ion-title>Profile</ion-title>
-      </ion-list-header>
       <ion-label>Full Name: {{(Profile |async)?.fullName}}</ion-label><br><br>
       <ion-label>Nick Name: {{(Profile |async)?.nickName}}</ion-label><br><br>
       <ion-label>Gender: {{(Profile |async)?.gender}}</ion-label><br><br>

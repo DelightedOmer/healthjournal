@@ -1,8 +1,13 @@
 .background{
-    --background:url('../../../assets/20091.jpg');
+    --background: rgb(95, 95, 95); // url('../../../assets/20091.jpg');
 }
 ion-content{
     --background:url('../../../assets/afternoon.png') 0 0/100% 100% no-repeat;
+}
+ion-tab-button{
+    --color: white !important;
+    --color-selected: yellow;
+    
 }
 .appName{
     display: grid;
@@ -20,6 +25,7 @@ ion-content{
 }
  .input{
      background-color: darken($color: #302c2c11, $amount: 0);
+     width: 220px;
      border-radius: 50px;
  }
 ion-button{

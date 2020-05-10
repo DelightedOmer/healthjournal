@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as firebase from 'Firebase';
 import { NavigationExtras, ActivatedRoute, Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 
 export const snapshotToArray = snapshot => {
   const returnArr = [];
@@ -20,6 +21,7 @@ export const snapshotToArray = snapshot => {
 })
 
 export class HomePage implements OnInit {
+  @ViewChild(IonContent, {static: false}) content: IonContent;
 
   data = { type: '', nickName: '', message: '' };
   chats: any = [];
@@ -56,7 +58,7 @@ export class HomePage implements OnInit {
       this.chats = snapshotToArray(resp);
       setTimeout(() => {
       if (this.offStatus === false) {
-       // this.content.scrollToBottom(300);
+        this.content.scrollToBottom(300);
       }
     }, 1000);
   });

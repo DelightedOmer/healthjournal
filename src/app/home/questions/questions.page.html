@@ -2,278 +2,567 @@
   <ion-toolbar>
     <ion-title>
       <ion-icon name="help-circle-outline"></ion-icon>
-      Wellbeing Questions.....
-      <ion-icon class="btn" name="arrow-forward-circle-outline" (click)="nextbtn()" size="large"></ion-icon>
+      Wellbeing Questions
+      <ion-icon class="next" name="arrow-forward-circle-outline" (click)="nextbtn()" size="large"></ion-icon>
   </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content *ngIf= "(info |async)?.patient === 'cardiovascular'" [fullscreen]="true">
-  <div>
+<ion-content padding #content *ngIf= "(info |async)?.patient === 'cardiovascular'" [fullscreen]="true">
+  <ion-list>
     <ion-grid class="questions">
-      <div>
-        <p>Do you have Pain today?</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-         <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="cardi.painChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="cardi.painChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="cardi.painChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="cardi.painChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="cardi.painChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Do you have Shortness of Breath?</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="cardi.breathChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="cardi.breathChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="cardi.breathChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="cardi.breathChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="cardi.breathChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Do you Sweat you Legs?</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="cardi.legsChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="cardi.legsChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="cardi.legsChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="cardi.legsChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="cardi.legsChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Do you have Cough?</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="cardi.coughChange(0)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="cardi.coughChange(1)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="cardi.coughChange(2)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="cardi.coughChange(3)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="cardi.coughChange(4)">&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>       
-        <p>Do you feel Hoarseness?</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="cardi.hoarsenessChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="cardi.hoarsenessChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="cardi.hoarsenessChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="cardi.hoarsenessChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="cardi.hoarsenessChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Do you feel Fatigue?</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="cardi.fatiqueChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="cardi.fatiqueChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="cardi.fatiqueChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="cardi.fatiqueChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="cardi.fatiqueChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Do you have Unexplained loss of Appetite/Weight?</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="cardi.weightChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="cardi.weightChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="cardi.weightChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="cardi.weightChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="cardi.weightChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-        </div>
-      </ion-grid>
-  </div>
-  <!--<div size="x-small">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
-</ion-content>
-
-
-<ion-content *ngIf= "(info |async)?.patient === 'cancer'" [fullscreen]="true">
-  <div>
-    <ion-grid class="questions">
-      <div>
-        <p>Pain</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-         <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="canc.painChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="canc.painChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="canc.painChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="canc.painChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="canc.painChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Nausea / Vomiting / Diarrhea</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="canc.stomachProblemChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="canc.stomachProblemChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="canc.stomachProblemChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="canc.stomachProblemChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="canc.stomachProblemChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Dry mouth or lips</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="canc.dryMouthChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="canc.dryMouthChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="canc.dryMouthChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="canc.dryMouthChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="canc.dryMouthChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Skin sensitivity including itchiness</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="canc.skinSensitivityChange(0)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="canc.skinSensitivityChange(1)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="canc.skinSensitivityChange(2)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="canc.skinSensitivityChange(3)">&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="canc.skinSensitivityChange(4)">&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>       
-        <p>Neuropathy (i.e. numbness)</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="canc.neuropathyChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="canc.neuropathyChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="canc.neuropathyChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="canc.neuropathyChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="canc.neuropathyChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Tiredness / Fatigue</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="canc.tirednessChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="canc.tirednessChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="canc.tirednessChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="canc.tirednessChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="canc.tirednessChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-      </div>
-
-      <div>
-        <p>Swelling / Fluid retention</p>
-      </div>
-      <div class ="btn">
-        <ion-row row-1>
-          <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.zero" (click)="canc.swellingChange(0)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.one" (click)="canc.swellingChange(1)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.two" (click)="canc.swellingChange(2)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.three" (click)="canc.swellingChange(3)"/>&nbsp;&nbsp;&nbsp;
-          <img class="pic" [src]="cardi.four" (click)="canc.swellingChange(4)"/>&nbsp;&nbsp;&nbsp;
-          <ion-label style="font-size: smaller; color:red;">High</ion-label>
-        </ion-row>
-        </div>
-
+      <div style="background-color:tan">
         <div>
-          <p>Bladder control issues</p>
+          <p>Do you have Pain today?</p>
         </div>
         <div class ="btn">
           <ion-row row-1>
             <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-            <img class="pic" [src]="cardi.zero" (click)="canc.bladderControlIssuesChange(0)"/>&nbsp;&nbsp;&nbsp;
-            <img class="pic" [src]="cardi.one" (click)="canc.bladderControlIssuesChange(1)"/>&nbsp;&nbsp;&nbsp;
-            <img class="pic" [src]="cardi.two" (click)="canc.bladderControlIssuesChange(2)"/>&nbsp;&nbsp;&nbsp;
-            <img class="pic" [src]="cardi.three" (click)="canc.bladderControlIssuesChange(3)"/>&nbsp;&nbsp;&nbsp;
-            <img class="pic" [src]="cardi.four" (click)="canc.bladderControlIssuesChange(4)"/>&nbsp;&nbsp;&nbsp;
-            <ion-label style="font-size: smaller; color:red;">High</ion-label>
+               <ion-fab-button fill="clear"
+               (click)="cardi.painChange(0)" [disabled] = "cardi.painDisable">
+                <img class="pic" [src]="cardi.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.painChange(1)" [disabled] = "cardi.painDisable">
+                <img class="pic" [src]="cardi.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.painChange(2)" [disabled] = "cardi.painDisable">
+                <img class="pic" [src]="cardi.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.painChange(3)" [disabled] = "cardi.painDisable">
+                <img class="pic" [src]="cardi.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.painChange(4)" [disabled] = "cardi.painDisable">
+                <img class="pic" [src]="cardi.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
           </ion-row>
-          </div>
+        </div><br><br>
+      </div>
 
+      <div style="background-color:lightsteelblue;">
+        <div>
+          <p>Do you have Shortness of Breath?</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+            <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.breathChange(0)" [disabled] = "cardi.breathDisable">
+                <img class="pic" [src]="cardi.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.breathChange(1)" [disabled] = "cardi.breathDisable">
+                <img class="pic" [src]="cardi.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.breathChange(2)" [disabled] = "cardi.breathDisable">
+                <img class="pic" [src]="cardi.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.breathChange(3)" [disabled] = "cardi.breathDisable">
+                <img class="pic" [src]="cardi.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.breathChange(4)" [disabled] = "cardi.breathDisable">
+                <img class="pic" [src]="cardi.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:tan">
+        <div>
+          <p>Do you Sweat you Legs?</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+            <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.legsChange(0)" [disabled] = "cardi.legsDisable">
+                <img class="pic" [src]="cardi.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.legsChange(1)" [disabled] = "cardi.legsDisable">
+                <img class="pic" [src]="cardi.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.legsChange(2)" [disabled] = "cardi.legsDisable">
+                <img class="pic" [src]="cardi.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.legsChange(3)" [disabled] = "cardi.legsDisable">
+                <img class="pic" [src]="cardi.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.legsChange(4)" [disabled] = "cardi.legsDisable">
+                <img class="pic" [src]="cardi.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:lightsteelblue;">
+        <div>
+          <p>Do you have Cough?</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+            <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.coughChange(0)" [disabled] = "cardi.coughDisable">
+                <img class="pic" [src]="cardi.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.coughChange(1)" [disabled] = "cardi.coughDisable">
+                <img class="pic" [src]="cardi.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.coughChange(2)" [disabled] = "cardi.coughDisable">
+                <img class="pic" [src]="cardi.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.coughChange(3)" [disabled] = "cardi.coughDisable">
+                <img class="pic" [src]="cardi.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.coughChange(4)" [disabled] = "cardi.coughDisable">
+                <img class="pic" [src]="cardi.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:tan">
+        <div>       
+          <p>Do you feel Hoarseness?</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+            <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.hoarsenessChange(0)" (click)="scroll()" [disabled] = "cardi.hoarsenessDisable">
+                <img class="pic" [src]="cardi.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.hoarsenessChange(1)" (click)="scroll()" [disabled] = "cardi.hoarsenessDisable">
+                <img class="pic" [src]="cardi.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.hoarsenessChange(2)" (click)="scroll()" [disabled] = "cardi.hoarsenessDisable">
+                <img class="pic" [src]="cardi.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.hoarsenessChange(3)" (click)="scroll()" [disabled] = "cardi.hoarsenessDisable">
+                <img class="pic" [src]="cardi.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.hoarsenessChange(4)" (click)="scroll()" [disabled] = "cardi.hoarsenessDisable">
+                <img class="pic" [src]="cardi.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:lightsteelblue;">
+        <div>
+          <p>Do you feel Fatigue?</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+            <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.fatiqueChange(0)" [disabled] = "cardi.fatiqueDisable">
+                <img class="pic" [src]="cardi.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.fatiqueChange(1)" [disabled] = "cardi.fatiqueDisable">
+                <img class="pic" [src]="cardi.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.fatiqueChange(2)" [disabled] = "cardi.fatiqueDisable">
+                <img class="pic" [src]="cardi.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.fatiqueChange(3)" [disabled] = "cardi.fatiqueDisable">
+                <img class="pic" [src]="cardi.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.fatiqueChange(4)" [disabled] = "cardi.fatiqueDisable">
+                <img class="pic" [src]="cardi.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:tan">
+        <div>
+          <p>Do you have Unexplained loss of Appetite/Weight?</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+            <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.weightChange(0)" [disabled] = "cardi.weightDisable">
+                <img class="pic" [src]="cardi.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.weightChange(1)" [disabled] = "cardi.weightDisable">
+                <img class="pic" [src]="cardi.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="cardi.weightChange(2)" [disabled] = "cardi.weightDisable">
+                <img class="pic" [src]="cardi.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.weightChange(3)" [disabled] = "cardi.weightDisable">
+                <img class="pic" [src]="cardi.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="cardi.weightChange(4)" [disabled] = "cardi.weightDisable">
+                <img class="pic" [src]="cardi.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+          </div><br><br>
+      </div><br><br><br><br>
+      </ion-grid>
+  </ion-list>
+  <!--<div size="x-small">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+</ion-content>
+
+
+<ion-content padding #content *ngIf= "(info |async)?.patient === 'cancer'" [fullscreen]="true">
+  <div>
+    <ion-grid class="questions">
+      <div style="background-color:tan">
+        <div>
+          <p>Pain</p>
+        </div>
+        <div class ="btn">
+            <ion-row row-1>
+              <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.painChange(0)" [disabled] = "canc.painDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.painChange(1)" [disabled] = "canc.painDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.painChange(2)" [disabled] = "canc.painDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.painChange(3)" [disabled] = "canc.painDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.painChange(4)" [disabled] = "canc.painDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+             </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:lightsteelblue;">
+        <div>
+          <p>Nausea / Vomiting / Diarrhea</p>
+        </div>
+        <div class ="btn">
+            <ion-row row-1>
+              <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+              <ion-fab-button fill="clear"
+              (click)="canc.stomachProblemChange(0)" [disabled] = "canc.stomachDisable">
+               <img class="pic" [src]="canc.zero"/>
+              </ion-fab-button>&nbsp;&nbsp;&nbsp;
+              <ion-fab-button fill="clear"
+              (click)="canc.stomachProblemChange(1)" [disabled] = "canc.stomachDisable">
+               <img class="pic" [src]="canc.one"/>
+              </ion-fab-button>&nbsp;&nbsp;&nbsp;
+              <ion-fab-button fill="clear"
+              (click)="canc.stomachProblemChange(2)" [disabled] = "canc.stomachDisable">
+               <img class="pic" [src]="canc.two"/>
+              </ion-fab-button>&nbsp;&nbsp;&nbsp;
+              <ion-fab-button
+              (click)="canc.stomachProblemChange(3)" [disabled] = "canc.stomachDisable">
+               <img class="pic" [src]="canc.three"/>
+              </ion-fab-button>&nbsp;&nbsp;&nbsp;
+              <ion-fab-button
+              (click)="canc.stomachProblemChange(4)" [disabled] = "canc.stomachDisable">
+               <img class="pic" [src]="canc.four"/>
+              </ion-fab-button>&nbsp;&nbsp;&nbsp;
+              <ion-label style="font-size: smaller; color:red;">High</ion-label>
+            </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:tan;">
+        <div>
+          <p>Dry mouth or lips</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.dryMouthChange(0)" [disabled] = "canc.dryMouthDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.dryMouthChange(1)" [disabled] = "canc.dryMouthDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.dryMouthChange(2)" [disabled] = "canc.dryMouthDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.dryMouthChange(3)" [disabled] = "canc.dryMouthDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.dryMouthChange(4)" [disabled] = "canc.dryMouthDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:lightsteelblue;">
+        <div>
+          <p>Skin sensitivity including itchiness</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.skinSensitivityChange(0)" [disabled] = "canc.skinSensitivityDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.skinSensitivityChange(1)" [disabled] = "canc.skinSensitivityDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.skinSensitivityChange(2)" [disabled] = "canc.skinSensitivityDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.skinSensitivityChange(3)" [disabled] = "canc.skinSensitivityDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.skinSensitivityChange(4)" [disabled] = "canc.skinSensitivityDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:tan;">
+        <div>       
+          <p>Neuropathy (i.e. numbness)</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.neuropathyChange(0)" (click)="scroll()" [disabled] = "canc.neuropathyDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.neuropathyChange(1)" (click)="scroll()" [disabled] = "canc.neuropathyDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.neuropathyChange(2)" (click)="scroll()" [disabled] = "canc.neuropathyDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.neuropathyChange(3)" (click)="scroll()" [disabled] = "canc.neuropathyDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.neuropathyChange(4)" (click)="scroll()" [disabled] = "canc.neuropathyDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:lightsteelblue;">
+        <div>
+          <p>Tiredness / Fatigue</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.tirednessChange(0)" [disabled] = "canc.tirednessDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.tirednessChange(1)" [disabled] = "canc.tirednessDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.tirednessChange(2)" [disabled] = "canc.tirednessDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.tirednessChange(3)" [disabled] = "canc.tirednessDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.tirednessChange(4)" [disabled] = "canc.tirednessDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+        </div><br><br>
+      </div>
+
+      <div style="background-color:tan;">
+        <div>
+          <p>Swelling / Fluid retention</p>
+        </div>
+        <div class ="btn">
+          <ion-row row-1>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.swellingChange(0)" [disabled] = "canc.swellingDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.swellingChange(1)" [disabled] = "canc.swellingDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.swellingChange(2)" [disabled] = "canc.swellingDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.swellingChange(3)" [disabled] = "canc.swellingDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.swellingChange(4)" [disabled] = "canc.swellingDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+          </ion-row>
+          </div><br><br>
+      </div>
+
+        <div style="background-color:lightsteelblue;">
           <div>
-            <p>Unintentional weight gain / loss</p>
+            <p>Bladder control issues</p>
           </div>
           <div class ="btn">
             <ion-row row-1>
-              <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-              <img class="pic" [src]="cardi.zero" (click)="canc.unintentionalWeightChange(0)"/>&nbsp;&nbsp;&nbsp;
-              <img class="pic" [src]="cardi.one" (click)="canc.unintentionalWeightChange(1)"/>&nbsp;&nbsp;&nbsp;
-              <img class="pic" [src]="cardi.two" (click)="canc.unintentionalWeightChange(2)"/>&nbsp;&nbsp;&nbsp;
-              <img class="pic" [src]="cardi.three" (click)="canc.unintentionalWeightChange(3)"/>&nbsp;&nbsp;&nbsp;
-              <img class="pic" [src]="cardi.four" (click)="canc.unintentionalWeightChange(4)"/>&nbsp;&nbsp;&nbsp;
-              <ion-label style="font-size: smaller; color:red;">High</ion-label>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.bladderControlIssuesChange(0)" [disabled] = "canc.bladderControlIssuesDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.bladderControlIssuesChange(1)" [disabled] = "canc.bladderControlIssuesDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.bladderControlIssuesChange(2)" [disabled] = "canc.bladderControlIssuesDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.bladderControlIssuesChange(3)" [disabled] = "canc.bladderControlIssuesDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.bladderControlIssuesChange(4)" [disabled] = "canc.bladderControlIssuesDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
             </ion-row>
-            </div>
+            </div><br><br>
+        </div>
 
+          <div style="background-color:tan;">
             <div>
-              <p>Night sweats / hot flashes</p>
+              <p>Unintentional weight gain / loss</p>
             </div>
             <div class ="btn">
               <ion-row row-1>
-                <ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
-                <img class="pic" [src]="cardi.zero" (click)="canc.nightSweatsFlashesChange(0)"/>&nbsp;&nbsp;&nbsp;
-                <img class="pic" [src]="cardi.one" (click)="canc.nightSweatsFlashesChange(1)"/>&nbsp;&nbsp;&nbsp;
-                <img class="pic" [src]="cardi.two" (click)="canc.nightSweatsFlashesChange(2)"/>&nbsp;&nbsp;&nbsp;
-                <img class="pic" [src]="cardi.three" (click)="canc.nightSweatsFlashesChange(3)"/>&nbsp;&nbsp;&nbsp;
-                <img class="pic" [src]="cardi.four" (click)="canc.nightSweatsFlashesChange(4)"/>&nbsp;&nbsp;&nbsp;
-                <ion-label style="font-size: smaller; color:red;">High</ion-label>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.unintentionalWeightChange(0)" [disabled] = "canc.unintentionalWeightDisbale">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.unintentionalWeightChange(1)" [disabled] = "canc.unintentionalWeightDisbale">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.unintentionalWeightChange(2)" [disabled] = "canc.unintentionalWeightDisbale">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.unintentionalWeightChange(3)" [disabled] = "canc.unintentionalWeightDisbale">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.unintentionalWeightChange(4)" [disabled] = "canc.unintentionalWeightDisbale">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
               </ion-row>
+              </div><br><br>
+          </div>
+
+            <div style="background-color:lightsteelblue;">
+              <div>
+                <p>Night sweats / hot flashes</p>
               </div>
+              <div class ="btn">
+                <ion-row row-1>
+<ion-label style="font-size: smaller; color:green;">Low</ion-label>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.nightSweatsFlashesChange(0)" [disabled] = "canc.nightSweatsFlashesDisable">
+                <img class="pic" [src]="canc.zero"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.nightSweatsFlashesChange(1)" [disabled] = "canc.nightSweatsFlashesDisable">
+                <img class="pic" [src]="canc.one"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button fill="clear"
+               (click)="canc.nightSweatsFlashesChange(2)" [disabled] = "canc.nightSweatsFlashesDisable">
+                <img class="pic" [src]="canc.two"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.nightSweatsFlashesChange(3)" [disabled] = "canc.nightSweatsFlashesDisable">
+                <img class="pic" [src]="canc.three"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-fab-button
+               (click)="canc.nightSweatsFlashesChange(4)" [disabled] = "canc.nightSweatsFlashesDisable">
+                <img class="pic" [src]="canc.four"/>
+               </ion-fab-button>&nbsp;&nbsp;&nbsp;
+               <ion-label style="font-size: smaller; color:red;">High</ion-label>
+                </ion-row>
+                </div><br><br>
+            </div>
       </ion-grid>
   </div>
   <!--<div size="x-small">Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->

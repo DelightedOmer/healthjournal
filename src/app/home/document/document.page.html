@@ -2,7 +2,7 @@
     <ion-toolbar>
       <ion-title>
         <ion-icon name="document-text-outline"></ion-icon>
-        Daily Journal  .....</ion-title>
+        Daily Journal</ion-title>
         <ion-button slot="end" (click)="backbtn()" fill="clear">
           <ion-icon name="arrow-back-circle-outline" size="large"></ion-icon>
         </ion-button>
@@ -18,18 +18,30 @@
     </div>
     <div>
       <ion-card>
-        <ion-card-header>
-          Type your today's summary ....
-        </ion-card-header>
         <ion-card-content>
-          <ion-input class="food" placeholder=" food" [(ngModel)]="food"></ion-input>
+          <ion-textarea 
+          [(ngModel)]="summary"
+          rows="8"
+          auto-grow="true"
+          autocapitalize="string"
+          enterkeyhint='breakfast'
+          maxlength="500"
+          placeholder="Type your today's summary (food, exercise, entertaintments, visits, events, others.....)"
+          required="true"
+          spellcheck="true"
+          autofocus="true"
+          style="color: black;"></ion-textarea>
+          <!--<ion-input class="food" placeholder=" food" [(ngModel)]="food"></ion-input>
           <ion-input class="exercise" placeholder=" exercise" [(ngModel)]="exercise"></ion-input>
           <ion-input class="entertaintments" placeholder=" entertaintments" [(ngModel)]="entertaintments"></ion-input>
           <ion-input class="visits" placeholder=" visits" [(ngModel)]="visits"></ion-input>
           <ion-input class="events" placeholder=" events" [(ngModel)]="events"></ion-input>
-          <ion-input class="others" placeholder=" others" [(ngModel)]="others"></ion-input>
+          <ion-input class="others" placeholder=" others" [(ngModel)]="others"></ion-input>-->
         </ion-card-content>
       </ion-card>
+      <ion-card-subtitle style="color: black;">
+        max length 500 letters
+      </ion-card-subtitle>
       <div class="submit">
         <ion-button (click)="submit()">Submit</ion-button>
       </div>

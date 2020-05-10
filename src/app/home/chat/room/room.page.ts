@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
 import * as firebase from 'Firebase';
 import { NavParams } from '@ionic/angular';
+import { ProfileService, ProfileElement } from 'src/app/profile.service';
+import { AuthService } from 'src/app/auth.service';
+import { Observable } from 'rxjs';
+import { UserService } from 'src/app/user.service';
 
 export const snapshotToArray = snapshot => {
   const returnArr = [];
@@ -22,19 +26,24 @@ export const snapshotToArray = snapshot => {
 })
 
 export class RoomPage implements OnInit {
-  nickName: any;
+  nickName: string = null;
   rooms = [];
   ref = firebase.database().ref('chatrooms/');
 
   constructor(
     private Aroute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private auth: AuthService,
+    private user: UserService,
+    private proService: ProfileService
   ) {
-    this.Aroute.queryParams.subscribe(params => {
-      if (params && params.nickName) {
-        this.nickName = params.nickName;
-      }
-    });
+  //  this.Aroute.queryParams.subscribe(params => {
+  //    if (params && params.nickName) {
+  //      this.nickName = params.nickName;
+  //    }
+  //  });
+    this.nickName = this.proService.nickName;
+    console.log(this.nickName);
 
     this.ref.on('value', resp => {
       this.rooms = [];

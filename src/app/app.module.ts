@@ -18,6 +18,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 import { CommonModule } from '@angular/common';
@@ -25,7 +27,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-
+import { FCM } from '@ionic-native/fcm/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -50,7 +52,9 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
-    AuthService
+    AuthService,
+    Geolocation,
+    FCM
   ],
   bootstrap: [AppComponent]
 })

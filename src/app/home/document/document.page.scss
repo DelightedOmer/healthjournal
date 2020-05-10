@@ -1,17 +1,27 @@
 ion-toolbar{
-  --background:url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
+  --background: white; // url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
   color:black;
 }
 ion-content{
-  --background:url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
+  --background: white; // url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
   }
 ion-card{
-  background-color: rgba(0, 0, 0, 0.603);
+  background-color: rgb(212, 212, 212);
   max-width: 80%;
   margin-left: 10%;
-  ion-card-header{
-    color: white;
+  ion-card-content{
+    height: 33em;
+    overflow:scroll;
+    resize:none; 
+    position:relative;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
   }
+}
+ion-card-subtitle{
+  margin-right: 10%;
+  float: right;
 }
 p{
   color: black;

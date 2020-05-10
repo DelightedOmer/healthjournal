@@ -46,6 +46,7 @@ export interface ProfileElement {
   providedIn: 'root'
 })
 export class ProfileService {
+  public nickName: string;
   public profile: Observable<ProfileElement[]>;
   proCollection: AngularFirestoreCollection<ProfileElement>;
   uid;
@@ -92,7 +93,7 @@ export class ProfileService {
       return this.afStore.collection('users').doc<ProfileElement>(id).valueChanges().pipe(
       take(1),
       map( pro => {
-      console.log(pro);
+      this.nickName = pro.nickName;
       return pro;
       })
       );

@@ -22,6 +22,7 @@ export class DocumentPage implements OnInit {
   visits: string = null;
   events: string = null;
   others: string = null;
+  summary: string = null;
 
   completedTags = [
       'breakfast', 'lunch', 'dinner',
@@ -50,6 +51,7 @@ export class DocumentPage implements OnInit {
   }
 
   async submit() {
+    const summary = this.summary;
     const food = this.food;
     const exercise = this.exercise;
     const entertaintments = this.entertaintments;
@@ -62,7 +64,7 @@ export class DocumentPage implements OnInit {
     const data = {food, exercise, entertaintments, visits, events, ohters
     };
 
-    res.update({summary: data});
+    res.set({summary: {summary}}, {merge: true});
     this.router.navigate(['/tabs/questions']);
   }
 }

@@ -1,8 +1,19 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+@font-face {
+  font-family: 'Custom';
+  src: url('src/assets/font/HelveticaFont/Helvetica.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /** Ionic CSS Variables **/
 :root {
+  /** custom font **/
+  --ion-font-family: 'Custom';
+    font-family: 'Custom';
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;

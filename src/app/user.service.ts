@@ -13,10 +13,12 @@ export interface Userelement {
   displayName?: string;
   photoURL?: string;
   patient?: string;
+  location?: any;
 }
 
 @Injectable()
 export class UserService {
+  public nickName: string;
   public user$: Observable<Userelement[]>;
   userCollection: AngularFirestoreCollection<Userelement>;
 
@@ -37,7 +39,10 @@ export class UserService {
 
     // function to set user information
     setUser(user: Userelement): Promise<void> {
-      return this.userCollection.doc(user.uid).set(user);
+      return this.userCollection.doc(user.uid).set(user, {merge: true});
+    }
+    setLocation(user: Userelement, id: string): Promise<void> {
+      return this.userCollection.doc(id).set(user, {merge: true});
     }
 
     updateUser(user: Userelement): Promise<void> {
@@ -55,11 +60,12 @@ export class UserService {
       return this.afStore.collection('users').doc<Userelement>(id).valueChanges().pipe(
       take(1),
       map( user => {
+      this.nickName = user.displayName;
       console.log(user);
       return user;
       })
       );
-}
+    }
 
 // pop up alert message
 async showAlert(header: string, message: string) {

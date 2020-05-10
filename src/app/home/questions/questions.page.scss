@@ -1,15 +1,31 @@
 ion-content{
-  --background:url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
+  --background: white; // url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
   }
 ion-toolbar{
-  --background:url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
+  --background: white; // url('../../../assets/background.jpg') 0 0/100% 100% no-repeat;
   color:black;
+}
+ion-grid{
+  display: grid;
+  ion-row{
+    justify-content: center;
+  }
+}
+ion-fab-button{
+  height: 28px;
+  width: 28px;
+  --background: transparent;
 }
   p{
     color:black;
+    font-size: larger;
+    padding-left: 5%;;
   }
   ion-label{
     color:black;
+  }
+  .next{
+    float: right;
   }
   .pic{
     width: 25px;
@@ -20,17 +36,6 @@ ion-toolbar{
     align-items: center;
     justify-content: center;
     margin-top: 2em;
-  }
-  .btn {
-    position: auto;
-    float: right;
-    size: small;
-  }
-  .questions {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    margin-left: 3em;
   }
   .rating {
     display: grid;

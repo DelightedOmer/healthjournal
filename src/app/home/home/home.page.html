@@ -2,7 +2,7 @@
   <ion-toolbar class="head">
     <ion-title>
       <ion-icon name="home-outline"></ion-icon>
-      Your today  .....
+      Check In
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,32 +18,35 @@
 
 <ion-content class="background" [fullscreen]="true">
   <div class="raitng">
+    <ion-title *ngIf="Profile" style="text-align: center;">
+      Welcome {{(Profile |async)?.fullName}}
+    </ion-title>
     <ion-title>
       How are you today?
     </ion-title> <br><br><br>
     <ion-row row-1 class ="btn">
-      <ion-buttons (click)="submit(1)">
-        <ion-button fill="clear" shape="circle">
+      <ion-buttons>
+        <ion-button fill="clear" shape="circle" (click)="submit(0)" [disabled]="feelDisable">
           <ion-img class="pic" [src]="happy"></ion-img>
         </ion-button>&nbsp;&nbsp;Very Good
       </ion-buttons><br>
-      <ion-buttons (click)="submit(2)">
-        <ion-button fill="clear" shape="circle">
+      <ion-buttons>
+        <ion-button fill="clear" shape="circle" (click)="submit(1)" [disabled]="feelDisable">
           <ion-img class="pic" [src]="smile"></ion-img>
         </ion-button>&nbsp;&nbsp;Good
       </ion-buttons><br>
-      <ion-buttons (click)="submit(3)">
-        <ion-button fill="clear" shape="circle">
+      <ion-buttons>
+        <ion-button fill="clear" shape="circle" (click)="submit(2)" [disabled]="feelDisable">
           <ion-img class="pic" [src]="normal"></ion-img>
         </ion-button>&nbsp;&nbsp;Neutral
       </ion-buttons><br>
-      <ion-buttons (click)="submit(4)">
-        <ion-button fill="clear" shape="circle">
+      <ion-buttons>
+        <ion-button fill="clear" shape="circle" (click)="submit(3)" [disabled]="feelDisable">
           <ion-img class="pic" [src]="sad"></ion-img>
         </ion-button>&nbsp;&nbsp;Bad
       </ion-buttons><br>
-      <ion-buttons (click)="submit(5)">
-        <ion-button fill="clear" shape="circle">
+      <ion-buttons>
+        <ion-button fill="clear" shape="circle" (click)="submit(4)" [disabled]="feelDisable">
           <ion-img class="pic" [src]="cry"></ion-img>
         </ion-button>&nbsp;&nbsp;Very Bad
       </ion-buttons>
