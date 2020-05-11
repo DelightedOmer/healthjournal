@@ -23,9 +23,7 @@
           [(ngModel)]="summary"
           rows="8"
           auto-grow="true"
-          autocapitalize="string"
-          enterkeyhint='breakfast'
-          maxlength="500"
+          autocapitalize="true"
           placeholder="Type your today's summary (food, exercise, entertaintments, visits, events, others.....)"
           required="true"
           spellcheck="true"
@@ -39,9 +37,6 @@
           <ion-input class="others" placeholder=" others" [(ngModel)]="others"></ion-input>-->
         </ion-card-content>
       </ion-card>
-      <ion-card-subtitle style="color: black;">
-        max length 500 letters
-      </ion-card-subtitle>
       <div class="submit">
         <ion-button (click)="submit()">Submit</ion-button>
       </div>
