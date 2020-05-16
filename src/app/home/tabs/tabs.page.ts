@@ -4,6 +4,7 @@ import { AuthService } from '../../auth.service'; // import Authservice from aut
 
 import { LoginComponent } from '../../login/login.component'; // import login elements from login component
 import { RegisterPage } from 'src/app/register/register.page';
+import { GoogleComponent } from '../../google/google.component';
 
 @Component({
   selector: 'app-tabs',
@@ -16,9 +17,29 @@ export class TabsPage implements OnInit {
   constructor(
     public Uauth: AuthService,
     public ln: LoginComponent,
-    public rg: RegisterPage
+    public rg: RegisterPage,
+    public gp: GoogleComponent
     ) {}
 
   ngOnInit() {}
 
+//  unreadSmsCount() {
+//    const SmsCount = 0;
+ //   const conversationList = 'true';
+ //   if ( conversationList ) {
+  //    for (let i = 0; i < conversationList.length; i++) {
+  //      SmsCount += conversationList[i].messages.length - conversationsInfo[i].messagesRead;
+  //      if (SmsCount === 0) {
+  //        SmsCount = null;
+  //      }
+  //  }
+ // }
+ // getUnreadMessagesCount() {
+  //  if (this.unreadMessagesCount) {
+  //    if (this.unreadMessagesCount > 0) {
+  //      return this.unreadMessagesCount;
+  //    }
+  //  }
+ //   return null;
+ // }
 }

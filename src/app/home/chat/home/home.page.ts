@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import * as firebase from 'Firebase';
 import { NavigationExtras, ActivatedRoute, Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+import { ProfileService } from 'src/app/profile.service';
 
 export const snapshotToArray = snapshot => {
   const returnArr = [];
@@ -27,33 +28,47 @@ export class HomePage implements OnInit {
   chats: any = [];
   roomkey: string = null;
   nickName: string = null;
+  patient: string = null;
   offStatus: boolean;
 
   constructor(
     private Aroute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private proService: ProfileService
   ) {
-    this.Aroute.queryParams.subscribe(params => {
-      if (params && params.nickName) {
-        this.nickName = JSON.parse(params.nickName);
-        this.roomkey = JSON.parse(params.roomKey);
+    this.nickName = this.proService.nickName;
+    this.patient = this.proService.patient;
+    try {
+      if ( this.patient === 'cancer') {
+        this.roomkey = '-M6u0AtMOUFBdwYX6lwY';
+      } else {
+        this.roomkey = '-M6u0M1Lr6G34ZI_kka0';
       }
+    } catch {
+      console.log('Patient does not exist');
+    }
 
-      this.offStatus = false;
-      this.data.type = 'message';
-      this.data.nickName = this.nickName;
+  //  this.Aroute.queryParams.subscribe(params => {
+  //    if (params && params.nickName) {
+  //      this.nickName = JSON.parse(params.nickName);
+  //      this.roomkey = JSON.parse(params.roomKey);
+   //   }
 
-      const joinData = firebase.database().ref('chatrooms/' + this.roomkey + '/chats').push();
-      joinData.set({
+    this.offStatus = false;
+    this.data.type = 'message';
+    this.data.nickName = this.nickName;
+
+    const joinData = firebase.database().ref('chatrooms/' + this.roomkey + '/chats').push();
+    joinData.set({
       type: 'join',
       user: this.nickName,
       message: this.nickName + ' has joined this room.',
       sendDate: Date()
       });
-      this.data.message = '';
+    this.data.message = '';
 
 
-      firebase.database().ref('chatrooms/' + this.roomkey + '/chats').on('value', resp => {
+    firebase.database().ref('chatrooms/' + this.roomkey + '/chats').on('value', resp => {
       this.chats = [];
       this.chats = snapshotToArray(resp);
       setTimeout(() => {
@@ -62,7 +77,7 @@ export class HomePage implements OnInit {
       }
     }, 1000);
   });
-    });
+   // });
   }
 
   sendMessage() {

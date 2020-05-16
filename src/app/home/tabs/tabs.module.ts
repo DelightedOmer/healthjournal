@@ -7,6 +7,7 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 import { TabsPage } from './tabs.page';
 import { LoginComponent } from '../../login/login.component';
 import { RegisterPage } from '../../register/register.page';
+import { GoogleComponent } from '../../google/google.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +16,6 @@ import { RegisterPage } from '../../register/register.page';
     TabsPageRoutingModule
   ],
   declarations: [TabsPage],
-  providers: [LoginComponent, RegisterPage]
+  providers: [LoginComponent, RegisterPage, GoogleComponent]
 })
 export class TabsPageModule {}

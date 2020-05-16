@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
 
 export interface ProfileElement {
   id?: any;
+  patient: string;
   fullName: string;
   nickName: string;
   gender: string;
@@ -47,6 +48,8 @@ export interface ProfileElement {
 })
 export class ProfileService {
   public nickName: string;
+  public patient: string;
+
   public profile: Observable<ProfileElement[]>;
   proCollection: AngularFirestoreCollection<ProfileElement>;
   uid;
@@ -70,19 +73,29 @@ export class ProfileService {
       return this.proCollection.doc(id).set(pro, {merge: true});
     }
 
-    updateProfile(pro: ProfileElement): Promise<void> {
-      return this.proCollection.doc(this.uid).update({
+    updateProfile(pro: ProfileElement, id): Promise<void> {
+      return this.proCollection.doc(id).update({
         fullName: pro.fullName,
         nickName: pro.nickName,
         gender: pro.gender,
         age: pro.age,
+        patient: pro.patient,
         maritalStatus: pro.maritalStatus,
         work: pro.work,
         natureOfJob: pro.natureOfJob,
         state: pro.state,
         city: pro.city,
         streetName: pro.streetName,
-        streetNumber: pro.streetNumber
+        streetNumber: pro.streetNumber,
+        chronicProblem: pro.chronicProblem,
+        hospital: pro.hospital,
+        doctor: pro.doctor,
+        procedure: pro.procedure,
+        medication: pro.medication,
+        sideEffect: pro.sideEffect,
+        ethnicity: pro.ethnicity,
+        foodHabbit: pro.foodHabbit,
+        citiesLivedpast: pro.citiesLivedpast
       });
     }
 
@@ -94,6 +107,8 @@ export class ProfileService {
       take(1),
       map( pro => {
       this.nickName = pro.nickName;
+      this.patient = pro.patient;
+      console.log(this.nickName, this.patient);
       return pro;
       })
       );

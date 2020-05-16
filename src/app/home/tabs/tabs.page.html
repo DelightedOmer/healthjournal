@@ -12,7 +12,7 @@
         <ion-label class="tab">Check In</ion-label>
       </ion-tab-button>
 
-      <ion-tab-button routerLink="/room" routerDirection="root">
+      <ion-tab-button routerLink="/chat" routerDirection="root">
         <ion-icon name="chatbubbles-outline"></ion-icon>
         <ion-label class="tab">Chat</ion-label>
       </ion-tab-button>
@@ -40,7 +40,12 @@
       <br><ion-button expand="block" style="background-color: royalblue;" (click)="ln.login()">Log In</ion-button>
     </ion-card-content>
     <ion-label routerLink='/register' routerDirection='root'>Create a new account
-    </ion-label>
+    </ion-label><br><br>
+    <ion-buttons>
+      <ion-button fill="solid" color="danger" (click)="gp.googleLogin()">Google Plus
+        <ion-icon slot="end" name="logo-google"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-grid>
 </ion-content>
 </ng-template>

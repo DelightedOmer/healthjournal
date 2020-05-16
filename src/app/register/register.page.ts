@@ -20,7 +20,6 @@ export class RegisterPage implements OnInit {
   email?: string;
   password?: string;
   repassword: string;
-  patient: string = null;
 
   constructor(
       public afAuth: AngularFireAuth,
@@ -43,8 +42,7 @@ async register() {
       this.user.setUser({
       uid: credential.user.uid,
       email,
-      displayName: email.split('@')[0],
-      patient: this.patient
+      displayName: email.split('@')[0]
       });
       console.log(credential.user.uid);
 

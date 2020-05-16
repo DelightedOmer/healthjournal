@@ -21,6 +21,7 @@ export class ProfilePage implements OnInit {
     nickName: '',
     gender: '',
     age: null,
+    patient: '',
     maritalStatus: '',
     work: '',
     natureOfJob: '',
@@ -73,7 +74,7 @@ export class ProfilePage implements OnInit {
   }
 
   updateProfile() {
-    this.proService.updateProfile(this.profile);
+    this.proService.updateProfile(this.profile, this.updateUid);
     this.router.navigate(['/tabs/settings']);
   }
 

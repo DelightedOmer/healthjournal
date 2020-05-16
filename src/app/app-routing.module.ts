@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/chat/add-room/add-room.module').then( m => m.AddRoomPageModule)
   },
   {
-    path: 'home',
+    path: 'chat',
     loadChildren: () => import('./home/chat/home/home.module').then( m => m.HomePageModule)
   },
   {

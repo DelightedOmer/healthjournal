@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { FCM } from '@ionic-native/fcm/ngx';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -54,7 +55,8 @@ import { FCM } from '@ionic-native/fcm/ngx';
     UserService,
     AuthService,
     Geolocation,
-    FCM
+    FCM,
+    GooglePlus
   ],
   bootstrap: [AppComponent]
 })

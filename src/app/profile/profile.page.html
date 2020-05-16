@@ -40,6 +40,13 @@
       </ion-item>
 
       <ion-item>
+        <ion-label floating>Disease: </ion-label>
+        <ion-select class="input" required="true" [(ngModel)] = "profile.patient">
+          <ion-select-option class="input" value="cancer">Cancer</ion-select-option>
+          <ion-select-option class="input" value="cardiovascular">Cardiovascular</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
         <ion-label floating>Marital Status: </ion-label>
         <ion-select required="true" [(ngModel)] = "profile.maritalStatus">
           <ion-select-option value="Un-Married">Un-Married</ion-select-option>

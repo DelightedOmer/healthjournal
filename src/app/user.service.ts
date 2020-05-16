@@ -12,7 +12,6 @@ export interface Userelement {
   uid?: string;
   displayName?: string;
   photoURL?: string;
-  patient?: string;
   location?: any;
 }
 

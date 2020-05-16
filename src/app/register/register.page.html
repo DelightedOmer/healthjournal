@@ -8,10 +8,7 @@
     <ion-input class="input" placeholder="  Email" type="email" [(ngModel)]="email"></ion-input> <br>
       <ion-input class="input" placeholder="  Password" type="password" [(ngModel)]="password"></ion-input> <br>
       <ion-input class="input" placeholder="  Re-Password" type="password" [(ngModel)]="repassword"></ion-input><br>
-        <ion-select class="input" placeholder="Disease" required="true" [(ngModel)] = "patient">
-          <ion-select-option class="input" value="cancer">Cancer</ion-select-option>
-          <ion-select-option class="input" value="cardiovascular">Cardiovascular</ion-select-option>
-        </ion-select><br>
+        <br>
         <ion-button expand="block" style="background-color: royalblue;" (click)="register()">Register</ion-button>
   </ion-card-content>
   <ion-grid>
